@@ -1,4 +1,7 @@
 GovSchoolApplication::Application.routes.draw do
+  
+  resources :applicants
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
