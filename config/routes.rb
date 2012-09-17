@@ -1,7 +1,12 @@
 GovSchoolApplication::Application.routes.draw do
   
+  get "static_pages/info"
+
   resources :applicants
   
+  root to: 'static_pages#info'
+  
+  match '/applicant1', to: 'applicants#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

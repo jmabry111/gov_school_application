@@ -8,6 +8,8 @@ class ApplicantsController < ApplicationController
     if @applicant.save
       flash[:success] = "Your information was saved."
       redirect_to new_applicant_path
+    else
+      render 'new'
     end
   end
   

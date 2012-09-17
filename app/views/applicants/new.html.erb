@@ -7,6 +7,7 @@
 			<div class="alert alert-<%= key %>"><%= value %></div>
 	    <% end %>
 		<%= simple_form_for @applicant do |f| -%>
+			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.input(:school, :collection => ['Please select school', 'Bassett High School',
 											'Magna Vista High School','Martinsville High School',
 											'George Washington High School','Galileo High School',
