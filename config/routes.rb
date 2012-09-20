@@ -6,6 +6,12 @@ GovSchoolApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
+  match '/mission', to: 'static_pages#mission'
+  
+  match '/how', to: 'static_pages#how'
+  
+  match 'instructions', to: 'static_pages#instructions'
+  
   match '/applicant1', to: 'applicants#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
