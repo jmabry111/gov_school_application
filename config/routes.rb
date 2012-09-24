@@ -12,7 +12,8 @@ GovSchoolApplication::Application.routes.draw do
   
   match 'instructions', to: 'static_pages#instructions'
   
-  match '/applicant1', to: 'applicants#new'
+  match '/applicant1', to: 'applicants#new', :as => 'applicant', :via => :get
+  match '/applicant1', to: 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

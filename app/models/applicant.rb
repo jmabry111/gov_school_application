@@ -1,6 +1,8 @@
 class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :engteacher, :fname, :gender, :grade, :homephone, :lname, :mathteacher, :mname, :parentfname, :parentlname, :school, :scienceteacher, :workphone
   
+  attr_accessor :address, :email, :engteacher, :fname, :gender, :grade, :homephone, :lname, :mathteacher, :mname, :parentfname, :parentlname, :school, :scienceteacher, :workphone
+  
   validates :school, presence:true
   validates :fname, presence:true, length: {maximum: 25}
   validates :lname, presence:true, length: {maximum: 25}
@@ -15,4 +17,6 @@ class Applicant < ActiveRecord::Base
   validates :mathteacher, presence:true, length: {maximum: 50}
   validates :scienceteacher, presence:true, length: {maximum: 50}
   validates :engteacher, presence:true, length: {maximum: 50}
+  
+
 end
