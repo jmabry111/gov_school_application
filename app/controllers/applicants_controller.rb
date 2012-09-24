@@ -14,10 +14,24 @@ class ApplicantsController < ApplicationController
         format.json { render json: @applicant, status: :created, location: @applicant }
       else
         format.html { render action: "new" }
-        format.json { render json: @applicant.errors, status: :unprocessable_entity }
+        #format.json { render json: @applicant.errors, status: :unprocessable_entity }
+       #render 'new'
       end
     end
   end
+  
+  def edit
+  end
+  
+  def update
+     if @applicant.update_attributes(params[:applicant])
+       sign_in @user
+       flash[:success] = "Section 2 Completed"
+       redirect_to @applicant
+     else
+       render 'edit'
+     end
+   end
   
   def destroy
   end
