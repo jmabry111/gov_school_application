@@ -12,7 +12,7 @@ describe "Applicants" do
   end  
   
   describe "submit application" do
-    before {visit applicant1_path}
+    before {visit applicant_path}
     let(:submit) {"Submit my information"}
     
     describe "with invalid information" do
