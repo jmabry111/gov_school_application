@@ -1,8 +1,8 @@
 class AddGuidanceFieldsToApplicants < ActiveRecord::Migration
   def change
-    add_column :applicants, :schoolphone, :string
-    add_column :applicants, :counselorname, :string
-    add_column :applicants, :dueto, :string
-    add_column :applicants, :datedue, :date
+    add_column :applicants, :school_phone, :string
+    add_column :applicants, :counselor_name, :string
+    add_column :applicants, :due_to, :string
+    add_column :applicants, :date_due, :date
   end
 end

@@ -1,19 +1,19 @@
-<%= provide(:title, @applicant.lname) %>
+<%= provide(:title, @applicant.last_name) %>
 <div class="row">
   <div class="span6 offset3">
-	<p>Name: <%= @applicant.fname %> <%= @applicant.lname %></p>
+	<p>Name: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
 	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
-	<p>Parent Name: <%= @applicant.parentlname %>, <%= @applicant.parentfname %></p>
+	<p>Parent Name: <%= @applicant.parent_last_name %>, <%= @applicant.parent_first_name %></p>
 	<p>Home Address: <%= @applicant.address %></p>
-	<p>Home Phone: <%= @applicant.homephone %> &nbsp; Work Phone: <%= @applicant.workphone %></p>
+	<p>Home Phone: <%= @applicant.home_phone %> &nbsp; Work Phone: <%= @applicant.work_phone %></p>
 	<p>Email: <%= @applicant.email %></p>
 	<hr />
 	<p>
 		Names of Teachers Completing Recommendations:
 		<ul>
-			<li><%= @applicant.mathteacher %></li>
-			<li><%= @applicant.scienceteacher %></li>
-			<li><%= @applicant.engteacher %></li>
+			<li><%= @applicant.math_teacher %></li>
+			<li><%= @applicant.science_teacher %></li>
+			<li><%= @applicant.english_teacher %></li>
 		</ul>
 	</p>
   </div>
@@ -21,15 +21,15 @@
 	<%= simple_form_for @applicant do |f| -%>
 		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.input :school, :input_html => {:value => @applicant.school}%>
-		<%= f.input :schoolphone, :label => "School Phone" %>
-		<%= f.input :counselorname, :label => "Name of Guidance Counselor Designee" %>
+		<%= f.input :school_phone, :label => "School Phone" %>
+		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
 		<p>
 			Please attach an official copy of the student's transcript with the GPA 
 		   calculated as unweighted and an official copy of most recent standardized 
 		   test data.
 		</p>
-		<%= f.input :dueto, :label => "Information due to" %>
-		<%= f.input :datedue, :as => :string, :label => "Date Due" %>
+		<%= f.input :due_to, :label => "Information due to" %>
+		<%= f.input :date_due, :as => :string, :label => "Date Due" %>
 		<%= f.submit "Submit guidance information", class: "btn btn-large" %>
 	<% end %>
 </div>

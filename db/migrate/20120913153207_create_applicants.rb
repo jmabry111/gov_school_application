@@ -1,21 +1,21 @@
 class CreateApplicants < ActiveRecord::Migration
   def change
     create_table :applicants do |t|
-      t.string :fname
-      t.string :mname
-      t.string :lname
+      t.string :first_name
+      t.string :middle_name
+      t.string :last_name
       t.string :school
       t.integer :grade
       t.string :gender
-      t.string :parentfname
-      t.string :parentlname
+      t.string :parent_first_name
+      t.string :parent_last_name
       t.string :address
-      t.string :homephone
-      t.string :workphone
+      t.string :home_phone
+      t.string :work_phone
       t.string :email
-      t.string :mathteacher
-      t.string :scienceteacher
-      t.string :engteacher
+      t.string :math_teacher
+      t.string :science_teacher
+      t.string :english_teacher
 
       t.timestamps
     end

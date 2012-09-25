@@ -6,20 +6,21 @@
 		<%= simple_form_for @applicant do |f| -%>
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.input(:school, :collection => @school) %>
-			<%= f.input :fname, :label => "First Name" %> 
-			<%= f.input :lname, :label => "Last Name" %>
+			<%= f.input :first_name, :label => "First Name"  %> 
+			<%= f.input :middle_name, :label => "Middle Name"  %>
+			<%= f.input :last_name, :label => "Last Name" %>
 			<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons %>
-			<%= f.input :parentfname, :label => "Parent/Guardian First Name" %> 
-			<%= f.input :parentlname, :label => "Parent/Guardian Last Name" %>
+			<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
+			<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %>
 			<%= f.input :address, :label => "Home Address" %>
-			<%= f.input :homephone, :label => "Home Phone" %>
-			<%= f.input :workphone, :label => "Work Phone" %>
+			<%= f.input :home_phone, :label => "Home Phone" %>
+			<%= f.input :work_phone, :label => "Work Phone" %>
 			<%= f.input :email, :label => "Email" %>
 			<p>
 				Names of Teachers Completing Recommendations:
-				<%= f.input :mathteacher, :label => "Math:" %>
-				<%= f.input :scienceteacher, :label => "Science:" %>
-				<%= f.input :engteacher, :label => "English:" %>
+				<%= f.input :math_teacher, :label => "Math:" %>
+				<%= f.input :science_teacher, :label => "Science:" %>
+				<%= f.input :english_teacher, :label => "English:" %>
 			</p>
 			<%= f.submit "Submit my information", class: "btn btn-large" %>
 		<% end %>

@@ -1,27 +1,27 @@
-<%= provide(:title, @applicant.lname) %>
+<%= provide(:title, @applicant.last_name) %>
 <div class="row">
   <div class="span6 offset3">
 	<% flash[:success] = "Message was successfully sent." %>
 	<p>Applicant Submitted Section</p>
-	<p><%= @applicant.fname %> <%= @applicant.lname %></p>
+	<p><%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
 	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
-	<p>Parent Name: <%= @applicant.parentfname %> <%= @applicant.parentlname %></p>
+	<p>Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %></p>
 	<p>Home Address: <%= @applicant.address %></p>
-	<p>Home Phone: <%= @applicant.homephone %> &nbsp; Work Phone: <%= @applicant.workphone %></p>
+	<p>Home Phone: <%= @applicant.home_phone %> &nbsp; Work Phone: <%= @applicant.work_phone %></p>
 	<p>Email: <%= @applicant.email %></p>
 	<hr />
 	<p>
 		Names of Teachers Completing Recommendations:
 		<ul>
-			<li><%= @applicant.mathteacher %></li>
-			<li><%= @applicant.scienceteacher %></li>
-			<li><%= @applicant.engteacher %></li>
+			<li><%= @applicant.math_teacher %></li>
+			<li><%= @applicant.science_teacher %></li>
+			<li><%= @applicant.english_teacher %></li>
 		</ul>
 	</p>
 	<hr />
 	<p>Guidance Submitted Section</p>
-	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= @applicant.schoolphone %>
-	<p>Guidance Counselor <%= @applicant.counselorname %></p>
-	<p>Information Due To <%= @applicant.dueto %> &nbsp; Due Date: <%= @applicant.datedue %></p>
+	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= @applicant.school_phone %>
+	<p>Guidance Counselor <%= @applicant.counselor_name %></p>
+	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due %></p>
   </div>
 </div>

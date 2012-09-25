@@ -1,7 +1,7 @@
 class ApplicantsController < ApplicationController
   def new
     @applicant = Applicant.new
-    @school = ["", School.list].flatten
+    @school = [School.list].flatten
   end
   
   def show
@@ -10,7 +10,7 @@ class ApplicantsController < ApplicationController
   
   def create
     @applicant = Applicant.new(params[:applicant])
-    @school = ["", School.list].flatten
+    @school = [School.list].flatten
     
     respond_to do |format|
       if @applicant.save

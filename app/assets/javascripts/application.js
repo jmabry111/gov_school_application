@@ -16,5 +16,5 @@
 //=require jquery.ui.all
 
 $(function() {
-	$("input#applicant_datedue").datepicker();
+	$("input#applicant_date_due").datepicker();
 });

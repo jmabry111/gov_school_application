@@ -14,27 +14,27 @@
 ActiveRecord::Schema.define(:version => 20120925145907) do
 
   create_table "applicants", :force => true do |t|
-    t.string   "fname"
-    t.string   "mname"
-    t.string   "lname"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
     t.string   "school"
     t.integer  "grade"
     t.string   "gender"
-    t.string   "parentfname"
-    t.string   "parentlname"
+    t.string   "parent_first_name"
+    t.string   "parent_last_name"
     t.string   "address"
-    t.string   "homephone"
-    t.string   "workphone"
+    t.string   "home_phone"
+    t.string   "work_phone"
     t.string   "email"
-    t.string   "mathteacher"
-    t.string   "scienceteacher"
-    t.string   "engteacher"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "schoolphone"
-    t.string   "counselorname"
-    t.string   "dueto"
-    t.date     "datedue"
+    t.string   "math_teacher"
+    t.string   "science_teacher"
+    t.string   "english_teacher"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "school_phone"
+    t.string   "counselor_name"
+    t.string   "due_to"
+    t.date     "date_due"
   end
 
 end

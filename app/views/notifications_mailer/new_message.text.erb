@@ -1,4 +1,7 @@
-Applicant Name: <%= @applicant.fname %> <%=  @applicant.lname %> 
+<%= @applicant.first_name %> <%=  @applicant.last_name %> just submitted an application 
+to Piedmont Governor's School for Math, Science, and Technology. 
+Please go to <%= edit_applicant_url(@applicant, :host => "localhost:3000") %> to complete 
+your portion of the application. 
 
 Submitted on: <%= DateTime.now.to_date %>
 
