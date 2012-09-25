@@ -3,7 +3,7 @@ class Applicant < ActiveRecord::Base
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school, :science_teacher, :work_phone,
     :school_phone, :counselor_name, :due_to, :date_due
   
-    before_save :strip_extra_characters
+  before_save :strip_extra_characters
   
   validates :school, presence:true
   validates :first_name, presence:true, length: {maximum: 25}
@@ -23,8 +23,16 @@ class Applicant < ActiveRecord::Base
   
 
   def strip_extra_characters
-    self.home_phone = home_phone.gsub(/[^0-9]/, "")
-    self.work_phone = work_phone.gsub(/[^0-9]/, "")
-    self.school_phone = school_phone.gsub(/[^0-9]/, "")
+    self.home_phone = remove_non_digit_characters(home_phone)
+    self.work_phone = remove_non_digit_characters(work_phone)
+    self.school_phone = remove_non_digit_characters(school_phone)
+  end
+
+  private
+
+  def remove_non_digit_characters(string)
+    if string.present?
+      string.gsub(/[^0-9]/, "")
+    end
   end
 end
