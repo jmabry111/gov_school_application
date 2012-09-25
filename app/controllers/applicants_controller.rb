@@ -32,15 +32,15 @@ class ApplicantsController < ApplicationController
   
   def update
     @applicant = Applicant.find(params[:id])
-#     if @applicant.update_attributes(params[:applicant])
-#       flash[:success] = "Section 2 Completed"
-#       redirect_to @applicant
-#     else
-#       render 'edit'
-#     end
+     if @applicant.update_attributes(params[:applicant])
+       flash[:success] = "Section 2 Completed"
+       redirect_to @applicant
+     else
+       render 'edit'
+     end
    end
   
   def destroy
   end
-  
+
 end

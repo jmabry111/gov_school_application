@@ -2,6 +2,7 @@
 <div class="row">
   <div class="span6 offset3">
 	<% flash[:success] = "Message was successfully sent." %>
+	<p>Applicant Submitted Section</p>
 	<p><%= @applicant.fname %> <%= @applicant.lname %></p>
 	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
 	<p>Parent Name: <%= @applicant.parentfname %> <%= @applicant.parentlname %></p>
@@ -17,5 +18,10 @@
 			<li><%= @applicant.engteacher %></li>
 		</ul>
 	</p>
+	<hr />
+	<p>Guidance Submitted Section</p>
+	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= @applicant.schoolphone %>
+	<p>Guidance Counselor <%= @applicant.counselorname %></p>
+	<p>Information Due To <%= @applicant.dueto %> &nbsp; Due Date: <%= @applicant.datedue %></p>
   </div>
 </div>

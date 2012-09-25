@@ -1,5 +1,7 @@
 class Applicant < ActiveRecord::Base
-  attr_accessible :address, :email, :engteacher, :fname, :gender, :grade, :homephone, :lname, :mathteacher, :mname, :parentfname, :parentlname, :school, :scienceteacher, :workphone
+  attr_accessible :address, :email, :engteacher, :fname, :gender, :grade, :homephone, :lname, 
+    :mathteacher, :mname, :parentfname, :parentlname, :school, :scienceteacher, :workphone,
+    :schoolphone, :counselorname, :dueto, :datedue
   
   #attr_accessor :address, :email, :engteacher, :fname, :gender, :grade, :homephone, :lname, :mathteacher, :mname, :parentfname, :parentlname, :school, :scienceteacher, :workphone
   
