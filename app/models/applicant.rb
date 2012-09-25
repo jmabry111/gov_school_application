@@ -19,4 +19,8 @@ class Applicant < ActiveRecord::Base
   validates :engteacher, presence:true, length: {maximum: 50}
   
 
+  def strip_extra_characters
+    self.homephone = homephone.gsub((/(|)|-/))
+    self.workphone = workphone.gsub((/(|)|-/))
+  end
 end

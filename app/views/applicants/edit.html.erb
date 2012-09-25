@@ -1,0 +1,36 @@
+<%= provide(:title, @applicant.lname) %>
+<div class="row">
+  <div class="span6 offset3">
+	<p>Name: <%= @applicant.fname %> <%= @applicant.lname %></p>
+	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
+	<p>Parent Name: <%= @applicant.parentlname %>, <%= @applicant.parentfname %></p>
+	<p>Home Address: <%= @applicant.address %></p>
+	<p>Home Phone: <%= @applicant.homephone %> &nbsp; Work Phone: <%= @applicant.workphone %></p>
+	<p>Email: <%= @applicant.email %></p>
+	<hr />
+	<p>
+		Names of Teachers Completing Recommendations:
+		<ul>
+			<li><%= @applicant.mathteacher %></li>
+			<li><%= @applicant.scienceteacher %></li>
+			<li><%= @applicant.engteacher %></li>
+		</ul>
+	</p>
+  </div>
+<div class="span6 offset3">
+	<%= simple_form_for @applicant do |f| -%>
+		<%= render 'shared/error_messages', object: f.object %>
+		<%= f.input :school, :input_html => {:value => @applicant.school}%>
+		<%= f.input :schoolphone, :label => "School Phone" %>
+		<%= f.input :counselorname, :label => "Name of Guidance Counselor Designee" %>
+		<p>
+			Please attach an official copy of the student's transcript with the GPA 
+		   calculated as unweighted and an official copy of most recent standardized 
+		   test data.
+		</p>
+		<%= f.input :dueto, :label => "Information due to" %>
+		<%= f.input :datedue, :as => :datepicker, :label => "Date Due" %>
+		<%= f.submit "Submit guidance information", class: "btn btn-large" %>
+	<% end %>
+</div>
+</div>

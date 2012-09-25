@@ -1,0 +1,21 @@
+<%= provide(:title, @applicant.lname) %>
+<div class="row">
+  <div class="span6 offset3">
+	<% flash[:success] = "Message was successfully sent." %>
+	<p><%= @applicant.fname %> <%= @applicant.lname %></p>
+	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
+	<p>Parent Name: <%= @applicant.parentfname %> <%= @applicant.parentlname %></p>
+	<p>Home Address: <%= @applicant.address %></p>
+	<p>Home Phone: <%= @applicant.homephone %> &nbsp; Work Phone: <%= @applicant.workphone %></p>
+	<p>Email: <%= @applicant.email %></p>
+	<hr />
+	<p>
+		Names of Teachers Completing Recommendations:
+		<ul>
+			<li><%= @applicant.mathteacher %></li>
+			<li><%= @applicant.scienceteacher %></li>
+			<li><%= @applicant.engteacher %></li>
+		</ul>
+	</p>
+  </div>
+</div>

@@ -18,7 +18,7 @@ describe "application" do
       visit new_applicant_path
       fill_in_required_information("spiderman@example.com")
       click_button "Submit my information"
-
+#      save_and_open_page
       page.should have_content("Message was successfully sent")
     end
 

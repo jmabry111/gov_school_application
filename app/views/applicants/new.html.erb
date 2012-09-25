@@ -3,19 +3,12 @@
 
 <div class="row">
 	<div class="span6 offset3">
-		<% flash.each do |key, value| %>
-			<div class="alert alert-<%= key %>"><%= value %></div>
-	    <% end %>
 		<%= simple_form_for @applicant do |f| -%>
 			<%= render 'shared/error_messages', object: f.object %>
-			<%= f.input(:school, :collection => ['Please select school', 'Bassett High School',
-											'Magna Vista High School','Martinsville High School',
-											'George Washington High School','Galileo High School',
-											'Chatham High School','Dan River High School',
-											'Gretna High School','Tunstall High School'], :selected => 'Please select school' ) %>
+			<%= f.input(:school, :collection => @school) %>
 			<%= f.input :fname, :label => "First Name" %> 
 			<%= f.input :lname, :label => "Last Name" %>
-			<%= f.input :grade, :collection => ["11", "12"], :as => :radio %>
+			<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons %>
 			<%= f.input :parentfname, :label => "Parent/Guardian First Name" %> 
 			<%= f.input :parentlname, :label => "Parent/Guardian Last Name" %>
 			<%= f.input :address, :label => "Home Address" %>

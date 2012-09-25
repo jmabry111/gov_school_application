@@ -1,10 +1,16 @@
 class ApplicantsController < ApplicationController
   def new
     @applicant = Applicant.new
+    @school = ["", School.list].flatten
+  end
+  
+  def show
+    @applicant = Applicant.find(params[:id])
   end
   
   def create
     @applicant = Applicant.new(params[:applicant])
+    @school = ["", School.list].flatten
     
     respond_to do |format|
       if @applicant.save
@@ -21,16 +27,17 @@ class ApplicantsController < ApplicationController
   end
   
   def edit
+    @applicant = Applicant.find(params[:id])
   end
   
   def update
-     if @applicant.update_attributes(params[:applicant])
-       sign_in @user
-       flash[:success] = "Section 2 Completed"
-       redirect_to @applicant
-     else
-       render 'edit'
-     end
+    @applicant = Applicant.find(params[:id])
+#     if @applicant.update_attributes(params[:applicant])
+#       flash[:success] = "Section 2 Completed"
+#       redirect_to @applicant
+#     else
+#       render 'edit'
+#     end
    end
   
   def destroy

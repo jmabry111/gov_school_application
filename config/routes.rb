@@ -1,4 +1,5 @@
 GovSchoolApplication::Application.routes.draw do
+  resources :applicants
   
   get "static_pages/info"
 
@@ -12,8 +13,8 @@ GovSchoolApplication::Application.routes.draw do
   
   match 'instructions', to: 'static_pages#instructions'
   
-  match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
-  match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
+  #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
+  #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
