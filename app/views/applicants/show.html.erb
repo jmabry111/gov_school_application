@@ -7,7 +7,8 @@
 	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
 	<p>Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %></p>
 	<p>Home Address: <%= @applicant.address %></p>
-	<p>Home Phone: <%= @applicant.home_phone %> &nbsp; Work Phone: <%= @applicant.work_phone %></p>
+	<p>Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %> &nbsp; 
+		Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %></p>
 	<p>Email: <%= @applicant.email %></p>
 	<hr />
 	<p>
@@ -19,9 +20,13 @@
 		</ul>
 	</p>
 	<hr />
+  </div>
+<!--
+  <divclass="span6 offset3">
 	<p>Guidance Submitted Section</p>
-	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= @applicant.school_phone %>
+	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %>
 	<p>Guidance Counselor <%= @applicant.counselor_name %></p>
 	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due %></p>
   </div>
+-->
 </div>

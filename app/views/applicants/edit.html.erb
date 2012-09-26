@@ -5,7 +5,8 @@
 	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
 	<p>Parent Name: <%= @applicant.parent_last_name %>, <%= @applicant.parent_first_name %></p>
 	<p>Home Address: <%= @applicant.address %></p>
-	<p>Home Phone: <%= @applicant.home_phone %> &nbsp; Work Phone: <%= @applicant.work_phone %></p>
+	<p>Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %> &nbsp; 
+		Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %></p>
 	<p>Email: <%= @applicant.email %></p>
 	<hr />
 	<p>
@@ -30,7 +31,7 @@
 		</p>
 		<%= f.input :due_to, :label => "Information due to" %>
 		<%= f.input :date_due, :as => :string, :label => "Date Due" %>
-		<%= f.submit "Submit guidance information", class: "btn btn-large" %>
+		<%= f.submit "Submit school information", class: "btn btn-large" %>
 	<% end %>
 </div>
 </div>
