@@ -1,4 +1,7 @@
-class School
+class School < ActiveRecord::Base
+  
+  attr_accessible :name, :representative_email
+
   def self.list
     ["Bassett High School", "Magna Vista High School","Martinsville High School",
 			"George Washington High School","Galileo High School", "Chatham High School",

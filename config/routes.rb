@@ -7,7 +7,7 @@ GovSchoolApplication::Application.routes.draw do
   
   get "static_pages/info"
 
-  resources :applicants
+  resources :applicants, :schools
   
   root to: 'static_pages#info'
   
@@ -16,6 +16,9 @@ GovSchoolApplication::Application.routes.draw do
   match '/how', to: 'static_pages#how'
   
   match 'instructions', to: 'static_pages#instructions'
+  
+  get "schools/new"
+  match 'school_entry',  to: 'schools#new'
   
   #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
   #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
