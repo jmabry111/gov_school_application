@@ -2,7 +2,7 @@
 <div class="row">
   <div class="span6 offset3">
 	<p>Name: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
-	<p>High School: <%= @applicant.school %> &nbsp; Grade Level: <%= @applicant.grade %></p>
+	<p>High School: <%= @applicant.school.name %> &nbsp; Grade Level: <%= @applicant.grade %></p>
 	<p>Parent Name: <%= @applicant.parent_last_name %>, <%= @applicant.parent_first_name %></p>
 	<p>Home Address: <%= @applicant.address %></p>
 	<p>Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %> &nbsp; 
@@ -21,7 +21,7 @@
 <div class="span6 offset3">
 	<%= simple_form_for @applicant do |f| -%>
 		<%= render 'shared/error_messages', object: f.object %>
-		<%= f.input :school, :input_html => {:value => @applicant.school}%>
+		<%= f.input :school, :input_html => {:value => @applicant.school.name}%>
 		<%= f.input :school_phone, :label => "School Phone" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
 		<p>
