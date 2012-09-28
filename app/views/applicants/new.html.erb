@@ -5,7 +5,7 @@
 	<div class="span6 offset3">
 		<%= simple_form_for @applicant do |f| -%>
 			<%= render 'shared/error_messages', object: f.object %>
-			<%= f.input(:school, :collection => @school) %>
+			<%= f.association :school %>
 			<%= f.input :first_name, :label => "First Name"  %> 
 			<%= f.input :middle_name, :label => "Middle Name"  %>
 			<%= f.input :last_name, :label => "Last Name" %>

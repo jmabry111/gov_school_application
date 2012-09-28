@@ -1,9 +1,10 @@
 class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
-    :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school, :science_teacher, :work_phone,
+    :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
     :school_phone, :counselor_name, :due_to, :date_due
+    belongs_to :school
   
-  before_save :strip_extra_characters, :get_school_email
+  before_save :strip_extra_characters
   
   validates :school, presence:true
   validates :first_name, presence:true, length: {maximum: 25}
