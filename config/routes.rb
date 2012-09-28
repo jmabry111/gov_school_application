@@ -3,11 +3,9 @@ GovSchoolApplication::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :applicants
+  resources :applicants, :schools
   
   get "static_pages/info"
-
-  resources :applicants, :schools
   
   root to: 'static_pages#info'
   
