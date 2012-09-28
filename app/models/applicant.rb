@@ -3,7 +3,7 @@ class Applicant < ActiveRecord::Base
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school, :science_teacher, :work_phone,
     :school_phone, :counselor_name, :due_to, :date_due
   
-  before_save :strip_extra_characters
+  before_save :strip_extra_characters, :get_school_email
   
   validates :school, presence:true
   validates :first_name, presence:true, length: {maximum: 25}
@@ -28,6 +28,10 @@ class Applicant < ActiveRecord::Base
     self.school_phone = remove_non_digit_characters(school_phone)
   end
 
+  def get_school_email
+    school_email = School.find_by_name(school, :select => :representative_email)
+  end
+  
   private
 
   def remove_non_digit_characters(string)
