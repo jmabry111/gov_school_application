@@ -6,8 +6,8 @@ class CreateSchools < ActiveRecord::Migration
 
       t.timestamps
       
-      change_column :applicants, :school, :integer
-      rename_column :applicants, :school, :school_id
+      remove_column :applicants, :school
+      add_column :applicants, :school_id :integer
     end
   end
 end
