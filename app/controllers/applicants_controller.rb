@@ -1,4 +1,7 @@
 class ApplicantsController < ApplicationController
+  
+  before_filter :authenticate_user!, :except => [:new, :show]
+  
   def new
     @applicant = Applicant.new
     @school = [School.list].flatten
