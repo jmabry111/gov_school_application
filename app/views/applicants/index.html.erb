@@ -1,0 +1,10 @@
+<% provide(:title, 'All Applicants') %>
+<h1>Schools</h1>
+
+<%= will_paginate %>
+
+<ul class="applicants">
+	<% @applicants.each do |a| %>
+		<%= render a %>
+	<% end %>
+</ul>
