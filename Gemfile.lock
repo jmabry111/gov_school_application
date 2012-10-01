@@ -238,6 +238,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   cucumber-rails (= 1.2.1)
   database_cleaner (= 0.7.0)
+  devise
   email_spec
   factory_girl_rails (= 1.4.0)
   growl (= 1.0.3)

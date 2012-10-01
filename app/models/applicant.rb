@@ -28,10 +28,6 @@ class Applicant < ActiveRecord::Base
     self.work_phone = remove_non_digit_characters(work_phone)
     self.school_phone = remove_non_digit_characters(school_phone)
   end
-
-  def get_school_email
-    school_email = School.find_by_name(school, :select => :representative_email)
-  end
   
   private
 

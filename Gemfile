@@ -7,6 +7,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'activeadmin'
 gem 'kaminari'
 gem 'jquery-ui-rails'
+gem 'devise'
 
 
 
