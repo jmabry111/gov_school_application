@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20120926131449) do
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "last_name"
-    t.integer  "school_id",         :limit => 255
     t.integer  "grade"
     t.string   "gender"
     t.string   "parent_first_name"
@@ -29,12 +28,13 @@ ActiveRecord::Schema.define(:version => 20120926131449) do
     t.string   "math_teacher"
     t.string   "science_teacher"
     t.string   "english_teacher"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.string   "school_phone"
     t.string   "counselor_name"
     t.string   "due_to"
     t.date     "date_due"
+    t.integer  "school_id"
   end
 
   create_table "schools", :force => true do |t|

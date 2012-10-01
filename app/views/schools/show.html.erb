@@ -1,5 +1,8 @@
 <div class="row">
   <div class="span6 offset3">
-	<% flash[:success] = "School entered." %>
 	<p><%= @school.name %></p>
 	<p><%= @school.representative_email %></p>
+	<p><%= link_to "Back to Edit Schools", schools_path %></p>
+  </div>
+</div>
+	
