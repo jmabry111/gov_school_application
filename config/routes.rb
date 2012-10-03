@@ -1,13 +1,15 @@
 GovSchoolApplication::Application.routes.draw do
   
 
+  get "teacher_recommendations/new"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
 
-  resources :applicants, :schools
+  resources :applicants, :schools, :teacher_recommendations
   
   get "static_pages/info"
   

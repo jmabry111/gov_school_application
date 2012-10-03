@@ -3,6 +3,7 @@ class Applicant < ActiveRecord::Base
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
     :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email
     belongs_to :school
+    has_many :teacher_recommendations
   
   before_save :strip_extra_characters
   
@@ -28,6 +29,10 @@ class Applicant < ActiveRecord::Base
     self.home_phone = remove_non_digit_characters(home_phone)
     self.work_phone = remove_non_digit_characters(work_phone)
     self.school_phone = remove_non_digit_characters(school_phone)
+  end
+  
+  def to_s
+    "#{first_name} #{last_name}"
   end
   
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002124135) do
+ActiveRecord::Schema.define(:version => 20121003151033) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -78,6 +78,27 @@ ActiveRecord::Schema.define(:version => 20121002124135) do
     t.string   "representative_email"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "teacher_recommendations", :force => true do |t|
+    t.integer  "desire"
+    t.integer  "aptitude"
+    t.integer  "persistence"
+    t.integer  "self_discipline"
+    t.integer  "interaction"
+    t.integer  "problem_solving"
+    t.integer  "inquiry_skills"
+    t.integer  "study_skills"
+    t.integer  "time_management"
+    t.integer  "teamwork"
+    t.integer  "dedication"
+    t.integer  "work_ethic"
+    t.integer  "recommendation"
+    t.string   "subject"
+    t.date     "date_submitted"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "applicant_id"
   end
 
   create_table "users", :force => true do |t|
