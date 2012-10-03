@@ -4,6 +4,7 @@
 	<%= f.input :first_name, :label => "First Name"  %> 
 	<%= f.input :middle_name, :label => "Middle Name"  %>
 	<%= f.input :last_name, :label => "Last Name" %>
+	<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
 	<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %>

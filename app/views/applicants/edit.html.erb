@@ -6,6 +6,8 @@
 		<%= f.input :first_name, :label => "First Name", :input_html => {:value => @applicant.first_name} %>
 		<%= f.input :middle_name, :label => "Middle Name", :input_html => {:value => @applicant.middle_name}  %>
 		<%= f.input :last_name, :label => "Last Name", :input_html => {:value => @applicant.last_name} %>
+		<%= f.input :gender, :collection => ["Male", "Female"], :as => :radio_buttons, :input_html => {:value => @applicant.gender}, 
+			:item_wrapper_class => :inline %>
 		<%= f.input :grade,:collection => ["11", "12"], :as => :radio_buttons, :label => "Grade", :input_html => {:value => @applicant.grade},
 		 	:item_wrapper_class => :inline%>
 		<%= f.input :parent_first_name, :label => "Parent/Guardian First Name", :input_html => {:value => @applicant.parent_first_name} %> 
@@ -26,7 +28,7 @@
 	</p>
   </div>
 <div class="span6 offset3">
-		<%= f.input :school, :input_html => {:value => @applicant.school.name}%>
+		<h3>School: <%= @applicant.school.name %></h3><br /><br />
 		<%= f.input :school_phone, :label => "School Phone" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
 		<p>
