@@ -12,10 +12,11 @@ GovSchoolApplication::Application.routes.draw do
   resources :applicants, only: [:new, :create]
   resources :schools
   resource :teacher_recommendations
-  
+
   namespace :coordinator do
-    resources :applicants, :only => [:edit, :update, :show, :index]
-    resources :teacher_recommendations, :only => [:new, :create]
+    resources :applicants, :only => [:edit, :update, :show, :index] do
+      resources :teacher_recommendations, :only => [:new, :create]
+    end
     resources :teacher_invitations
   end
   

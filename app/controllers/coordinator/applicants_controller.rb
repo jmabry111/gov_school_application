@@ -18,7 +18,7 @@ class Coordinator::ApplicantsController < ApplicationController
     @applicant = Applicant.find(params[:id])
      if @applicant.update_attributes(params[:applicant])
        flash[:success] = "Section 2 Completed"
-       redirect_to new_coordinator_teacher_invitation_path(:id => @applicant.id)
+       redirect_to new_coordinator_applicant_teacher_recommendation_path(@applicant)
      else
        render 'edit'
      end
