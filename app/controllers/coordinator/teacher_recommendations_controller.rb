@@ -1,9 +1,9 @@
-class Coordinator::TeacherRecommendations@applicant = Applicant.newController < ApplicationController
+class Coordinator::TeacherRecommendationsController < ApplicationController
 
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create, :edit, @thanks_path]
 
   def new
-    @teacher_recommendation = TeacherRecommendation.new
+    @applicant = Applicant.find(params[:applicant_id])
   end
 
   def create

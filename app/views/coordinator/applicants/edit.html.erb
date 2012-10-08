@@ -1,7 +1,7 @@
 <%= provide(:title, @applicant.last_name) %>
 <div class="row">
   <div class="span6 offset3">
-	<%= simple_form_for @applicant, :url => coordinator_teacher_invitation_path do |f| -%>
+	<%= simple_form_for @applicant, :url => coordinator_applicant_path do |f| -%>
 		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.input :first_name, :label => "First Name", :input_html => {:value => @applicant.first_name} %>
 		<%= f.input :middle_name, :label => "Middle Name", :input_html => {:value => @applicant.middle_name}  %>
