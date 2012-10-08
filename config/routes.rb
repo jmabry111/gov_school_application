@@ -1,8 +1,4 @@
 GovSchoolApplication::Application.routes.draw do
-  
-
-  get "teacher_recommendations/new"
-
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -14,12 +10,15 @@ GovSchoolApplication::Application.routes.draw do
   resource :teacher_recommendations
 
   namespace :coordinator do
-    resources :applicants, :only => [:edit, :update, :show, :index] do
-      resources :teacher_recommendations, :only => [:new, :create]
+    resources :applicants, :only => [:show,:edit, :update, :show, :index] do
+      member do
+        get 'invite_teachers'
+        put 'create_invitations'
+      end
     end
-    resources :teacher_invitations
   end
   
+  resources :teacher_recommendations, :only => [:new, :create]
   get "static_pages/info"
   
   root to: 'static_pages#info'
