@@ -4,9 +4,14 @@ class Coordinator::TeacherInvitationsController < ApplicationController
     @applicant = Applicant.find(params[:id])
   end
   
+  def show
+    @applicant = Applicant.find(params[:id])
+  end
+  
   def create
     @applicant = Applicant.find(params[:id])
     if @applicant.save?
+      flash[:success] = "Invitations sent"
       redirect_to @applicant
     else
       render 'new'

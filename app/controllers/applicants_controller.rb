@@ -23,4 +23,9 @@ class ApplicantsController < ApplicationController
       end
     end
   end
+  
+  def update 
+    @applicant = Applicant.find(params[:id])
+    RecommendationCreator.new(@applicant.create_recommendations)
+  end
 end
