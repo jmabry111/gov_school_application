@@ -1,4 +1,4 @@
-class Coordinator::TeacherRecommendationsController < ApplicationController
+class Coordinator::TeacherRecommendations@applicant = Applicant.newController < ApplicationController
 
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create, :edit, @thanks_path]
 

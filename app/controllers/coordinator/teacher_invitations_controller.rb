@@ -1,17 +1,16 @@
-class Coordinator::ApplicantsController < ApplicationController
+class Coordinator::TeacherInvitationsController < ApplicationController
   
-  skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
-  
-  def index
-    @applicants = Applicant.paginate(page: params[:page])
+  def new
+    @applicant = Applicant.find(params[:id])
   end
-   
-  def show
-    @applicant = Applicant.find(params[:id])
-  end 
   
-  def edit
+  def create
     @applicant = Applicant.find(params[:id])
+    if @applicant.save?
+      redirect_to @applicant
+    else
+      render 'new'
+    end
   end
   
   def update
@@ -24,11 +23,4 @@ class Coordinator::ApplicantsController < ApplicationController
      end
    end
    
-   def teacher_invite
-     @applicant = Applicant.find(params[:id])
-   end
-
-  def destroy
-  end
-  
 end
