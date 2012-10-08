@@ -9,7 +9,12 @@ GovSchoolApplication::Application.routes.draw do
 
   devise_for :users
 
-  resources :applicants, :schools, :teacher_recommendations
+  resources :applicants, :schools, :teacher_recommendations, :coordinator
+  
+  namespace :coordinator do
+    resources :applicants, :only => [:edit, :update, :show, :index]
+    resources :teacher_recommendations, :only => [:new, :create]
+  end
   
   get "static_pages/info"
   
@@ -24,6 +29,10 @@ GovSchoolApplication::Application.routes.draw do
   match 'thank_you', to: 'static_pages#thank_you'
   
   match 'thanks', to: 'static_pages#thank_you_teacher'
+  
+  match 'teachers', to: 'applicants#teacher_invite'
+  
+  match 'success', to: 'static_pages#success'
   
   #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
   #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post

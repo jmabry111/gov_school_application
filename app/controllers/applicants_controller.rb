@@ -1,20 +1,12 @@
 class ApplicantsController < ApplicationController
   
-  skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
-  
-  def index
-    @applicants = Applicant.paginate(page: params[:page])
-  end
+  skip_before_filter :authenticate_user!, :only => [:new, :create, @success_path]
   
   def new
     @applicant = Applicant.new
     @school = [School.list].flatten
   end
-  
-  def show
-    @applicant = Applicant.find(params[:id])
-  end
-  
+
   def create
     @applicant = Applicant.new(params[:applicant])
     @school = [School.list].flatten
@@ -22,7 +14,7 @@ class ApplicantsController < ApplicationController
     respond_to do |format|
       if @applicant.save
         NotificationsMailer.new_message(@applicant).deliver
-        format.html { redirect_to @applicant, notice: 'Information was successfully submitted.' }
+        format.html { redirect_to success_path, notice: 'Information was successfully submitted.' }
         format.json { render json: @applicant, status: :created, location: @applicant }
       else
         format.html { render action: "new" }
@@ -31,22 +23,4 @@ class ApplicantsController < ApplicationController
       end
     end
   end
-  
-  def edit
-    @applicant = Applicant.find(params[:id])
-  end
-  
-  def update
-    @applicant = Applicant.find(params[:id])
-     if @applicant.update_attributes(params[:applicant])
-       flash[:success] = "Section 2 Completed"
-       redirect_to @applicant
-     else
-       render 'edit'
-     end
-   end
-  
-  def destroy
-  end
-
 end
