@@ -9,7 +9,9 @@ GovSchoolApplication::Application.routes.draw do
 
   devise_for :users
 
-  resources :applicants, :schools, :teacher_recommendations
+  resources :applicants, only: [:new, :create]
+  resources :schools
+  resource :teacher_recommendations
   
   namespace :coordinator do
     resources :applicants, :only => [:edit, :update, :show, :index]
