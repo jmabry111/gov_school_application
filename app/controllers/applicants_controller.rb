@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   
-  skip_before_filter :authenticate_user!, :only => [:new, :create, @success_path]
+  skip_before_filter :authenticate_user!, :only => [:new, :create, @success_path, @teachers_path]
   
   def new
     @applicant = Applicant.new
@@ -22,5 +22,10 @@ class ApplicantsController < ApplicationController
        #render 'new'
       end
     end
+    
+    def teacher_invite
+      @applicant = Applicant.find(params[:id])
+    end
+
   end
 end

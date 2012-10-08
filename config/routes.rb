@@ -30,7 +30,7 @@ GovSchoolApplication::Application.routes.draw do
   
   match 'thanks', to: 'static_pages#thank_you_teacher'
   
-  match 'teachers', to: 'applicants#teacher_invite'
+  match 'teachers/:id/invite', to: 'applicants#teacher_invite'
   
   match 'success', to: 'static_pages#success'
   

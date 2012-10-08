@@ -18,12 +18,16 @@ class Coordinator::ApplicantsController < ApplicationController
     @applicant = Applicant.find(params[:id])
      if @applicant.update_attributes(params[:applicant])
        flash[:success] = "Section 2 Completed"
-       redirect_to @applicant
+       redirect_to teachers_path
      else
        render 'edit'
      end
    end
-  
+   
+   def teacher_invite
+     @applicant = Applicant.find(params[:id])
+   end
+
   def destroy
   end
   
