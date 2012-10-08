@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:new, :show]
+  skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
   
   def index
     @applicants = Applicant.paginate(page: params[:page])

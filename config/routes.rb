@@ -23,6 +23,8 @@ GovSchoolApplication::Application.routes.draw do
   
   match 'thank_you', to: 'static_pages#thank_you'
   
+  match 'thanks', to: 'static_pages#thank_you_teacher'
+  
   #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
   #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
