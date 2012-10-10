@@ -6,10 +6,8 @@ class NotificationsMailer < ActionMailer::Base
     mail(:to => @applicant.school.representative_email, :subject => "Submitted Application")
   end
   
-  def invitations_message(applicant)
-    @applicant = applicant
-    mail(:to => @applicant.science_teacher_email, :subject => "Faculty Recommendation")
-    mail(:to => @applicant.math_teacher_email, :subject => "Faculty Recommendation")
-    mail(:to => @applicant.english_teacher_email, :subject => "Faculty Recommendation")
+  def invitations_message(teacher_recommendation)
+    @teacher_recommendation = teacher_recommendation
+    mail(:to => @teacher_recommendation.email, :subject => "Faculty Recommendation")
   end
 end

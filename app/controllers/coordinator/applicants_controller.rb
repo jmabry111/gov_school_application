@@ -33,6 +33,9 @@ class Coordinator::ApplicantsController < ApplicationController
     @applicant.update_attributes(params[:applicant])
     if has_all_teachers?
       #call your recommendation generator here
+      RecommendationCreator.new(@applicant).create_recommendations
+      flash[:success] = "Invitations successfully sent"
+      redirect_to coordinator_applicants_path
     else
       flash[:notice] = "You must provide an email address for all teachers!"
       redirect_to invite_teachers_coordinator_applicant_path(@applicant)
