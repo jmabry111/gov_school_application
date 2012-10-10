@@ -2,9 +2,15 @@
 * view all personal and school info
 * include links to recommendations for student
 
+---
+
 # Ability to generate pdfs
 * Need PDF of each recommendation
 * PDF for Student Info
 * PDF for School Info
 
+---
+
 # Ability to send all completed information packet to Selection Committee 
+
+---
