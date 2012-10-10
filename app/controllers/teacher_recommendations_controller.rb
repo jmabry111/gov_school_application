@@ -1,6 +1,6 @@
 class TeacherRecommendationsController < ApplicationController
   
-  skip_before_filter :authenticate_user!, :only => [:show, :edit, @thanks_path]
+  skip_before_filter :authenticate_user!, :only => [:new, :show, :create, :edit, :update, @thanks_path]
    
   def new
     @teacher_recommendation = TeacherRecommendation.new
