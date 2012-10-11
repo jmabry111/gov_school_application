@@ -2,8 +2,21 @@
 <div class="row">
   <div class="span6 offset3">
 	<% flash[:success] = "Message was successfully sent." %>
-	<p><%= @school_email %></p>
-	<p>Applicant Submitted Section</p>
+  </div>
+  <div class="span6 offset3">
+	<h2>Faculty Recommendations</h2>
+	  <div class="span12">
+		<span class="span-one-third"><%= link_to "Science Recommendation", 
+				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("science")) %></span>
+		<span class="span-one-third offset-one-third"><%= link_to "Math Recommendation", 
+				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("math")) %></span>
+		<span class="span-one-third offset-two-thirds"><%= link_to "English Recommendation", 
+				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("english")) %></span>
+	  </div>
+  </div>
+  <div class="span6 offset3">
+	<hr />
+	<h2>Applicant Submitted Section</h2>
 	<p><%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
 	<p>High School: <%= @applicant.school.name %> &nbsp; Grade Level: <%= @applicant.grade %></p>
 	<p>Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %></p>
@@ -22,12 +35,11 @@
 	</p>
 	<hr />
   </div>
-<!--
-  <divclass="span6 offset3">
-	<p>Guidance Submitted Section</p>
-	<p>High School: <%= @applicant.school %> &nbsp; School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %>
+  <div class="span6 offset3">
+	<h2>Guidance Submitted Section</h2>
+	<p>High School: <%= @applicant.school.name %></p>
+	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>
 	<p>Guidance Counselor <%= @applicant.counselor_name %></p>
 	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due %></p>
   </div>
--->
 </div>

@@ -35,6 +35,10 @@ class Applicant < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
   
+  def find_teacher_recommendations(applicant_id, subject)
+    
+  end
+  
   private
 
   def remove_non_digit_characters(string)
