@@ -18,4 +18,8 @@ class Coordinator::TeacherRecommendationsController < ApplicationController
   def edit
     @teacher_recommendation = TeacherRecommendation.find(params[:id])
   end
+  
+  def show
+    @teacher_recommendation = TeacherRecommendation.find(params[:id])
+  end
 end

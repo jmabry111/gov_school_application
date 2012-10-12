@@ -7,18 +7,18 @@ GovSchoolApplication::Application.routes.draw do
 
   resources :applicants, only: [:new, :create]
   resources :schools
-  resources :teacher_recommendations
+  resources :teacher_recommendations, :only => [:new, :create, :edit, :update]
 
   namespace :coordinator do
-    resources :applicants, :only => [:show,:edit, :update, :show, :index] do
+    resources :applicants, :only => [:show, :edit, :update, :index] do
       member do
         get 'invite_teachers'
         put 'create_invitations'
       end
     end
+    resources :teacher_recommendations, :only => [:show]
   end
   
-  #resources :teacher_recommendations, :only => [:new, :create]
   get "static_pages/info"
   
   root to: 'static_pages#info'

@@ -13,18 +13,64 @@
 					5 = Excellent
 				</p>
 				<%= render 'shared/error_messages', object: f.object %>
-				<%= f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :persistence, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :self_discipline, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :problem_solving, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :inquiry_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :teamwork, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :dedication, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<%= f.input :work_ethic, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
+				<%= 
+					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline, 
+					:label => "Shows desire and curiosity for learning" 
+				%>
+				<%= 
+					f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline,
+				 	:label => "Has aptitude and potential for study in math, science, technology and communications"
+				%>
+				<%= 
+					f.input :persistence, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Shows persistence when faced with challenges"
+				%>
+				<%= 
+					f.input :self_discipline, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline, 
+					:label => "Is self-disciplined in establishing and reaching goals"
+				%>
+				<%= 
+					f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Interacts well with other students and teachers"
+				%>
+				<%= 
+					f.input :problem_solving, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Has developed problem-solving skills/critical thinking skills"
+				%>
+				<%= 
+					f.input :inquiry_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Demonstrates skill in asking inquiry-type questions"
+				%>
+				<%= 
+					f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Demonstrates outstanding study skills and work habits"
+				%>
+				<%= 
+					f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Possesses excellent time management skills"
+				%>
+				<%= 
+					f.input :teamwork, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Demonstrates effective teamwork skills"
+				%>
+				<%= 
+					f.input :dedication, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
+					:label => "Shows strong dedication"
+				%>
+				<%= 
+					f.input :work_ethic, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,	
+					:label => "Has exceptional work ethic"
+				%>
 				<hr />
 					<h3>Please indicate your general recommendation for this student.</h3>
 				<p>

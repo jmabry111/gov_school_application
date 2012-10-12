@@ -1,20 +1,17 @@
 <%= provide(:title, @applicant.last_name) %>
 <div class="row">
-  <div class="span6 offset3">
-	<% flash[:success] = "Message was successfully sent." %>
-  </div>
-  <div class="span6 offset3">
+  <div class="span9 offset2">
 	<h2>Faculty Recommendations</h2>
 	  <div class="span12">
 		<span class="span-one-third"><%= link_to "Science Recommendation", 
-				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("science")) %></span>
+				coordinator_teacher_recommendation_path(@applicant.science_recommendation) %></span>
 		<span class="span-one-third offset-one-third"><%= link_to "Math Recommendation", 
-				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("math")) %></span>
+				coordinator_teacher_recommendation_path(@applicant.math_recommendation) %></span>
 		<span class="span-one-third offset-two-thirds"><%= link_to "English Recommendation", 
-				edit_teacher_recommendation_path(@applicant.teacher_recommendations.find_by_subject("english")) %></span>
+				coordinator_teacher_recommendation_path(@applicant.english_recommendation) %></span>
 	  </div>
   </div>
-  <div class="span6 offset3">
+  <div class="span9 offset2">
 	<hr />
 	<h2>Applicant Submitted Section</h2>
 	<p><%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
@@ -35,7 +32,7 @@
 	</p>
 	<hr />
   </div>
-  <div class="span6 offset3">
+  <div class="span9 offset2">
 	<h2>Guidance Submitted Section</h2>
 	<p>High School: <%= @applicant.school.name %></p>
 	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>

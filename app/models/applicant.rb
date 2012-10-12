@@ -34,12 +34,23 @@ class Applicant < ActiveRecord::Base
   def to_s
     "#{first_name} #{last_name}"
   end
-  
-  def find_teacher_recommendations(applicant_id, subject)
     
+  def science_recommendation
+    science_recommendation = find_recommendation_by_subject("Science")
   end
+  def math_recommendation
+    math_recommendation = find_recommendation_by_subject("Math")
+  end
+  def english_recommendation
+    english_recommendation = find_recommendation_by_subject("English")
+  end
+ 
   
-  private
+  private 
+  
+  def find_recommendation_by_subject(subject)
+    teacher_recommendation = teacher_recommendations.find_by_subject(subject)
+  end
 
   def remove_non_digit_characters(string)
     if string.present?
