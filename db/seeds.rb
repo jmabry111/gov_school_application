@@ -15,3 +15,4 @@ School.create!(name: "Tunstall High School", representative_email: "jason@pgsmst
 School.create!(name: "Chatham High School", representative_email: "jason@pgsmst.com")
 School.create!(name: "Dan River High School", representative_email: "jason@pgsmst.com")
 School.create!(name: "Gretna High School", representative_email: "jason@pgsmst.com")
+
