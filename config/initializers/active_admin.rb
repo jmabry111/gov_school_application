@@ -55,7 +55,10 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :authenticate_admin_user!
+  
+  #This is what it should be 
+  #config.authentication_method = :authenticate_admin!
+  config.authentication_method = false
 
 
   # == Current User
@@ -65,7 +68,11 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # to return the currently logged in user.
-  config.current_user_method = :current_admin_user
+  
+  
+   #This is what it should be 
+   #config.current_user_method = :current_user
+  config.current_user_method = false
 
 
   # == Logging Out
@@ -78,13 +85,13 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
   #
   # Default:
-  # config.logout_link_method = :get
+   config.logout_link_method = :delete
 
   # == Root
   #
@@ -123,7 +130,7 @@ ActiveAdmin.setup do |config|
   # You can add before, after and around filters to all of your
   # Active Admin resources from here.
   #
-  # config.before_filter :do_something_awesome
+   config.before_filter :is_admin?
 
 
   # == Register Stylesheets & Javascripts
