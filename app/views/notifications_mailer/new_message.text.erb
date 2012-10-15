@@ -1,6 +1,6 @@
 <%= @applicant.first_name %> <%=  @applicant.last_name %> just submitted an application 
 to Piedmont Governor's School for Math, Science, and Technology. 
-Please go to <%= link_to "Complete Application", edit_coordinator_applicant_url(@applicant) %> to complete 
+Please go to <%= link_to 'Complete Application', edit_coordinator_applicant_url(@applicant) %> to complete 
 your portion of the application. 
 
 Submitted on: <%= DateTime.now.to_date %>
