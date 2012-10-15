@@ -3,7 +3,7 @@ class Coordinator::ApplicantsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
 
   def index
-    @applicants = Applicant.paginate(page: params[:page])
+    @applicants = current_user.school.applicants.paginate(page: params[:page])
   end
 
   def show
