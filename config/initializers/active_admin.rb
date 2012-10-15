@@ -57,8 +57,8 @@ ActiveAdmin.setup do |config|
   # within the controller.
   
   #This is what it should be 
-  #config.authentication_method = :authenticate_admin!
-  config.authentication_method = false
+  config.authentication_method = :authenticate_admin!
+  #config.authentication_method = false
 
 
   # == Current User
@@ -71,8 +71,8 @@ ActiveAdmin.setup do |config|
   
   
    #This is what it should be 
-   #config.current_user_method = :current_user
-  config.current_user_method = false
+  config.current_user_method = :current_user
+  #config.current_user_method = false
 
 
   # == Logging Out
