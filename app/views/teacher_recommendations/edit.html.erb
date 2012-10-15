@@ -3,9 +3,13 @@
 	<div class="span10 offset1">
 		<div class="input-xlarge">
 			<%= simple_form_for @teacher_recommendation do |f| -%>
-				<%= f.association :applicant %>
 		</div>
 		<div class="form-horizontal">
+			<h3>
+				Applicant: 
+				<%= @teacher_recommendation.applicant.first_name %>
+				<%= @teacher_recommendation.applicant.last_name %>
+			</h3><hr />
 				<h3>Please rate the candidate in the following categories by checking the appropriate number based on the following rating scale.</h3>
 				<p>
 					1 = Not observed
@@ -100,7 +104,6 @@
 				</div>
 				<div class="input-xlarge">
 				<%= f.input :subject, :label => "Subject Area" %>
-				<%= f.input :date_submitted, :label => "Date Submitted", :input_html => {:value => :date} %>
 				<hr />
 				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
 			<% end %>

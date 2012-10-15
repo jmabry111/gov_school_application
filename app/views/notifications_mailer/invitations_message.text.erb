@@ -6,4 +6,6 @@ to Piedmont Governor's School for Math, Science, and Technology.
 Faculty Recommendation to be used as a recerence in the application process. <%= link_to 'Complete Recommendation', edit_teacher_recommendation_url(@teacher_recommendation) %> 
 to complete the recommendation. 
 
+Please complete by <%= @teacher_recommendation.applicant.date_due.strftime("%m/%d/%Y") %>
+
 Thank you!
