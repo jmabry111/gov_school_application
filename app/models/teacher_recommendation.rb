@@ -6,8 +6,9 @@ class TeacherRecommendation < ActiveRecord::Base
   before_save :create_slug
   
   validates :aptitude, presence:true
+  validates :desire, presence:true
   validates :dedication, presence:true
-  validates :inqiury_skills, presence:true
+  validates :inquiry_skills, presence:true
   validates :interaction, presence:true
   validates :persistence, presence:true
   validates :problem_solving, presence:true
