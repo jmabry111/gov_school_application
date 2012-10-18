@@ -37,6 +37,6 @@
 	<p>High School: <%= @applicant.school.name %></p>
 	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>
 	<p>Guidance Counselor <%= @applicant.counselor_name %></p>
-	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due %></p>
+	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
   </div>
 </div>

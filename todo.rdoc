@@ -1,9 +1,3 @@
-# View all applicant's information in 1 place
-* view all personal and school info
-* include links to recommendations for student
-
----
-
 # Ability to generate pdfs
 * Need PDF of each recommendation
 * PDF for Student Info
