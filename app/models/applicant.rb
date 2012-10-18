@@ -1,7 +1,8 @@
 class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
-    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email
+    :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, 
+    :applicant_confirmation, :parent_confirmation
     belongs_to :school
     has_many :teacher_recommendations
   
@@ -23,6 +24,8 @@ class Applicant < ActiveRecord::Base
   validates :math_teacher, presence:true, length: {maximum: 50}
   validates :science_teacher, presence:true, length: {maximum: 50}
   validates :english_teacher, presence:true, length: {maximum: 50}
+  validates :applicant_confirmation, presence:true
+  validates :parent_confirmation, presence:true
   
 
   def strip_extra_characters
