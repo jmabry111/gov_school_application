@@ -5,11 +5,31 @@ class TeacherRecommendation < ActiveRecord::Base
   belongs_to :applicant
   before_save :create_slug
   
+  validates :aptitude, presence:true
+  validates :dedication, presence:true
+  validates :inqiury_skills, presence:true
+  validates :interaction, presence:true
+  validates :persistence, presence:true
+  validates :problem_solving, presence:true
+  validates :recommendation, presence:true
+  validates :self_discipline, presence:true
+  validates :study_skills, presence:true
+  validates :teamwork, presence:true
+  validates :time_management, presence:true
+  validates :work_ethic, presence:true
+  
   def total_score
-    total_score = aptitude + dedication + desire + inquiry_skills + interaction + persistence + 
+      if self.aptitude != nil
+      total_score = aptitude + dedication + desire + inquiry_skills + interaction + persistence + 
                   problem_solving + recommendation + self_discipline + study_skills + teamwork + 
                   time_management + work_ethic
+      end
   end
+  
+  def complete?
+    self.aptitude == nil
+  end
+
   
   def to_param
     self.slug
@@ -17,7 +37,9 @@ class TeacherRecommendation < ActiveRecord::Base
   
   private
   def create_slug
-    self.slug = SecureRandom.hex(10)
+    if self.slug.empty?
+      self.slug = SecureRandom.hex(10)
+    end
   end
 
 end

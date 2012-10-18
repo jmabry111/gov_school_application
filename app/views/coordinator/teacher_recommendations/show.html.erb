@@ -1,5 +1,9 @@
 <div class="row">
 	<div class="span12">
+		<% if @teacher_recommendation.complete? %>
+		<h1>Recommendation not yet complete<br />
+		<%= link_to "Return to Applicant Page", coordinator_applicant_path(@teacher_recommendation.applicant.id) %></h1>
+		<% end %>
 		<h3>Faculty Recommendation for 
 			<%= @teacher_recommendation.applicant.first_name %> 
 			<%= @teacher_recommendation.applicant.last_name %>.
