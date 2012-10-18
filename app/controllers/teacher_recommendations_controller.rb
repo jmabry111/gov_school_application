@@ -16,11 +16,11 @@ class TeacherRecommendationsController < ApplicationController
   end
   
   def edit
-    @teacher_recommendation = TeacherRecommendation.find(params[:id])
+    @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
   end
   
   def update
-    @teacher_recommendation = TeacherRecommendation.find(params[:id])
+    @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
     if @teacher_recommendation.update_attributes(params[:teacher_recommendation])
       flash[:success] = "Recommendation Submitted"
       redirect_to thanks_path

@@ -16,10 +16,10 @@ class Coordinator::TeacherRecommendationsController < ApplicationController
   end
   
   def edit
-    @teacher_recommendation = TeacherRecommendation.find(params[:id])
+    @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
   end
   
   def show
-    @teacher_recommendation = TeacherRecommendation.find(params[:id])
+    @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
   end
 end
