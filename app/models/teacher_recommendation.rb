@@ -38,7 +38,7 @@ class TeacherRecommendation < ActiveRecord::Base
   
   private
   def create_slug
-    if self.slug.empty?
+    if self.slug == nil
       self.slug = SecureRandom.hex(10)
     end
   end
