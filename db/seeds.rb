@@ -16,3 +16,6 @@ School.create!(name: "Chatham High School", representative_email: "jason@pgsmst.
 School.create!(name: "Dan River High School", representative_email: "jason@pgsmst.com")
 School.create!(name: "Gretna High School", representative_email: "jason@pgsmst.com")
 
+User.create!(email: "jmabry@mymabry.com", 
+            encrypted_password: "$2a$10$ulGeph4nPQb7RktTlEKQruJSswmCKvBm8cin48JURdl2wETh/gJGe", 
+            admin: true)
