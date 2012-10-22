@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="span12">
 		<% if @teacher_recommendation.complete? %>
-		<h1>Recommendation not yet complete<br />
-		<%= link_to "Return to Applicant Page", coordinator_applicant_path(@teacher_recommendation.applicant.id) %></h1>
+			<h1>Recommendation not yet complete<br />
+			<%= link_to "Return to Applicant Page", 
+				coordinator_applicant_path(@teacher_recommendation.applicant.id) %></h1>
 		<% end %>
 		<h3>Faculty Recommendation for 
 			<%= @teacher_recommendation.applicant.first_name %> 
@@ -24,32 +25,104 @@
 			4 = Above average
 			5 = Excellent
 		</p>	
-		<p>
-			Shows desire and curiosity for learning:
-			<%= @teacher_recommendation.desire %><br />
-			Has aptitude and potential for study in math, science, technology and communications: 
-			<%= @teacher_recommendation.aptitude %><br />
-			Shows persistence when faced with challenges: 
-			<%= @teacher_recommendation.persistence %><br />
-			Is self-disciplined in establishing and reaching goals: 
-			<%= @teacher_recommendation.self_discipline %><br />
-			Interacts well with other students and teachers: 
-			<%= @teacher_recommendation.interaction %><br />
-			Has developed problem-solving skills/critical thinking skills: 
-			<%= @teacher_recommendation.problem_solving %><br />
-			Demonstrates skill in asking inquiry-type questions: 
-			<%= @teacher_recommendation.inquiry_skills %><br />
-			Demonstrates outstanding study skills and work habits: 
-			<%= @teacher_recommendation.study_skills %><br />
-			Possesses excellent time management skills: 
-			<%= @teacher_recommendation.time_management %><br />
-			Demonstrates effective teamwork skills: 
-			<%= @teacher_recommendation.teamwork %><br />
-			Shows strong dedication: 
-			<%= @teacher_recommendation.dedication %><br />
-			Has exceptional work ethic: 
-			<%= @teacher_recommendation.work_ethic %><br /><br />
-		</p>	
+		<table class="table">
+			<tr>
+				<td>
+					Shows desire and curiosity for learning:
+				</td>
+				<td>
+					<%= @teacher_recommendation.desire %>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Has aptitude and potential for study in math, science, technology and communications: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.aptitude %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+			Shows persistence when faced with challenges: 		
+				</td>
+				<td>
+			<%= @teacher_recommendation.persistence %><br />		
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Is self-disciplined in establishing and reaching goals: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.self_discipline %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Interacts well with other students and teachers: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.interaction %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Has developed problem-solving skills/critical thinking skills: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.problem_solving %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Demonstrates skill in asking inquiry-type questions: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.inquiry_skills %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Demonstrates outstanding study skills and work habits: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.study_skills %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Possesses excellent time management skills: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.time_management %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Demonstrates effective teamwork skills: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.teamwork %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Shows strong dedication: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.dedication %><br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Has exceptional work ethic: 
+				</td>
+				<td>
+					<%= @teacher_recommendation.work_ethic %><br /><br />
+				</td>
+			</tr>
+		</table>	
 		<h4>Teacher's general recommendation - based on the following scale:</h4>
 		<p>
 			0 = Do not recommend
@@ -57,8 +130,23 @@
 			3 = Recommend
 			5 = Highly Recommend
 		</p>
-		<h4>Recommendation Score: <%= @teacher_recommendation.recommendation %></h4>
-		<hr />
-		<h3>Total Score: <%= @teacher_recommendation.total_score %></h3>
+		<table class="table">
+			<tr>
+				<td>
+					<h4>Recommendation Score: </h4>
+				</td>
+				<td>
+					<h4><%= @teacher_recommendation.recommendation %></h4>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Total Score: </h3>
+				</td>
+				<td>
+					<h3><%= @teacher_recommendation.total_score %></h3>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
