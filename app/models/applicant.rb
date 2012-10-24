@@ -18,7 +18,6 @@ class Applicant < ActiveRecord::Base
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
   validates :work_phone, format: {with:VALID_PHONE_REGEX}
- # validates :school_phone, presence:true, format: {with:VALID_PHONE_REGEX}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive:false}
   validates :math_teacher, presence:true, length: {maximum: 50}
@@ -26,6 +25,11 @@ class Applicant < ActiveRecord::Base
   validates :english_teacher, presence:true, length: {maximum: 50}
   validates :applicant_confirmation, presence:true
   validates :parent_confirmation, presence:true
+  validates :school_phone, presence:true, format: {with:VALID_PHONE_REGEX}, on: :update
+  validates :counselor_name, presence:true, on: :update
+  validates :due_to, presence:true, on: :update
+  validates :date_due, presence:true, on: :update
+  
   
 
   def strip_extra_characters
