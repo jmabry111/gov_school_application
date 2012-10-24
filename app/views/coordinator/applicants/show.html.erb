@@ -1,6 +1,6 @@
 <%= provide(:title, @applicant.last_name) %>
 <div class="row">
-  <div class="span9 offset2">
+  <div class="span9 offset2 noprint">
 	<h2>Faculty Recommendations</h2>
 	  <div class="span12">
 		<span class="span-one-third"><%= link_to "Science Recommendation", 
@@ -12,31 +12,84 @@
 	  </div>
   </div>
   <div class="span9 offset2">
-	<hr />
+  <hr />
 	<h2>Applicant Submitted Section</h2>
-	<p><%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %></p>
-	<p>High School: <%= @applicant.school.name %> &nbsp; Grade Level: <%= @applicant.grade %></p>
-	<p>Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %></p>
-	<p>Home Address: <%= @applicant.address %></p>
-	<p>Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %> &nbsp; 
-		Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %></p>
-	<p>Email: <%= @applicant.email %></p>
 	<hr />
-	<p>
-		Names of Teachers Completing Recommendations:
-		<ul>
-			<li><%= @applicant.math_teacher %></li>
-			<li><%= @applicant.science_teacher %></li>
-			<li><%= @applicant.english_teacher %></li>
-		</ul>
-	</p>
+	<table class="noborder" style="width:100%;">
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">
+				Name of Applicant: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %>
+			</td>
+			<td class="noborder" style="width:50%;">Gender: <%= @applicant.gender %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">High School: <%= @applicant.school.name %><br /><br /></td>
+			<td class="noborder" style="width:50%;">Grade Level: <%= @applicant.grade %><br /><br /></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				Home Address: <%= @applicant.address %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">
+				Home Phone: <%= number_to_phone(@applicant.home_phone, :area_code => true) %>
+			</td>
+			<td class="noborder" style="width:50%;">
+				Work Phone: <%= number_to_phone(@applicant.work_phone, :area_code => true) %>
+			</td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">Email Address: <%= @applicant.email %></td>
+		</tr>
+	</table>
+	<br /><br />
+	<table class="noborder">
+		<tr class="noborder">
+			<th colspan="2">Names of Teachers Completing Recommendations:</th>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">Math:</td>
+			<td class="noborder"><%= @applicant.math_teacher %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">Science:</td>
+			<td class="noborder"><%= @applicant.science_teacher %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder">English:</td>
+			<td class="noborder"><%= @applicant.english_teacher %></td>
+		</tr>
+	</table>
+	<hr />
+	<h4>
+		I, <span style="text-decoration:underline;"><%= @applicant.first_name %> <%= @applicant.middle_name %> 
+		<%= @applicant.last_name %></span>, have agreed that the decision to apply to the Piedmont Governor's School 
+		for Mathematics, Science, and Technology is my own, and I want to participate fully in this program. I have 
+		read in its entirety the application procedures, inculding the application forms, and am aware of the appeals 
+		process of my school division.
+	</h4>
+	<h4>
+		I, <span style="text-decoration:underline;"><%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
+		</span>, am aware of and am in full support of the student's application to the Piedmont Governor's School for 
+		Mathematics, Science, and Technology and give my permission for the student's academic records to be reviewed 
+		by the division's Selection Committee. I have read in its entirety the application procedures, inculding the 
+		application forms, and am aware of the appeals process of my school division.
+	</h4>
 	<hr />
   </div>
   <div class="span9 offset2">
-	<h2>Guidance Submitted Section</h2>
+	<h2>Gifted Coordinatory/Guidance Counselor Submitted Section</h2>
+	<hr />
 	<p>High School: <%= @applicant.school.name %></p>
 	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>
-	<p>Guidance Counselor <%= @applicant.counselor_name %></p>
-	<p>Information Due To <%= @applicant.due_to %> &nbsp; Due Date: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
+	<p>Name of Guidance Counselor or Designee: <%= @applicant.counselor_name %></p>
+	<p>Information Due To: <%= @applicant.due_to %></p>
+	<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
   </div>
 </div>

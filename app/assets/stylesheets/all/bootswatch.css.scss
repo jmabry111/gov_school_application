@@ -52,6 +52,7 @@ a:hover{color:#558bc4;text-decoration:underline;}
 .offset6{margin-left:500px;}
 .offset5{margin-left:420px;}
 .offset4{margin-left:340px;}
+.offset3-5{margin-left:300px;}
 .offset3{margin-left:260px;}
 .offset2{margin-left:180px;}
 .offset1{margin-left:100px;}
@@ -276,7 +277,7 @@ table{max-width:100%;background-color:transparent;border-collapse:collapse;borde
 .table-bordered caption+thead tr:first-child th:first-child,.table-bordered caption+tbody tr:first-child td:first-child,.table-bordered colgroup+thead tr:first-child th:first-child,.table-bordered colgroup+tbody tr:first-child td:first-child{-webkit-border-top-left-radius:4px;border-top-left-radius:4px;-moz-border-radius-topleft:4px;}
 .table-bordered caption+thead tr:first-child th:last-child,.table-bordered caption+tbody tr:first-child td:last-child,.table-bordered colgroup+thead tr:first-child th:last-child,.table-bordered colgroup+tbody tr:first-child td:last-child{-webkit-border-top-right-radius:4px;border-top-right-radius:4px;-moz-border-radius-topleft:4px;}
 .table-striped tbody tr:nth-child(odd) td,.table-striped tbody tr:nth-child(odd) th{background-color:#f9f9f9;}
-.table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color:#f5f5f5;}
+.table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color:#fafafa;}
 table [class*=span],.row-fluid table [class*=span]{display:table-cell;float:none;margin-left:0;}
 .table .span1{float:none;width:44px;margin-left:0;}
 .table .span2{float:none;width:124px;margin-left:0;}
