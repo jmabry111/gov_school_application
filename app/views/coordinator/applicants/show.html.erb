@@ -89,6 +89,10 @@
 	<p>High School: <%= @applicant.school.name %></p>
 	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>
 	<p>Name of Guidance Counselor or Designee: <%= @applicant.counselor_name %></p>
+	<p style="font-weight:bold;">
+		Please attach an official copy of the student's transcript with the GPA calculated as unweighted and an official
+		copy of most recent standardized test data.
+	</p>
 	<p>Information Due To: <%= @applicant.due_to %></p>
 	<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
   </div>
