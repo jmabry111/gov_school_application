@@ -36,7 +36,7 @@
 				</p>
 				<%= f.input :recommendation, :collection => ["0","1","3","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 				<hr />
-				<%= f.input :subject, :label => "Subject Area", :input_html => {:value => @teacher_recommendation.subject} %>
+				<%= @teacher_recommendation.subject %>
 				<%= f.input :date_submitted, :label => "Date Submitted", :input_html => {:value => :date} %>
 				<hr />
 				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>

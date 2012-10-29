@@ -11,15 +11,15 @@ class Coordinator::ApplicantsController < ApplicationController
   end
 
   def show
-    @applicant = Applicant.find(params[:id])
+    @applicant = find_applicant_or_redirect
   end 
 
   def edit
-    @applicant = Applicant.find(params[:id])
+    @applicant = find_applicant_or_redirect
   end
 
   def update
-    @applicant = Applicant.find(params[:id])
+    @applicant = find_applicant_or_redirect
     if @applicant.update_attributes(params[:applicant])
       flash[:success] = "Section 2 Completed"
       redirect_to invite_teachers_coordinator_applicant_path(@applicant)
@@ -29,11 +29,11 @@ class Coordinator::ApplicantsController < ApplicationController
   end
 
   def invite_teachers
-    @applicant = Applicant.find(params[:id])
+    @applicant = find_applicant_or_redirect
   end
 
   def create_invitations
-    @applicant = Applicant.find(params[:id])
+    @applicant = find_applicant_or_redirect
     @applicant.update_attributes(params[:applicant])
     if has_all_teachers?
       #call your recommendation generator here
@@ -53,6 +53,16 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def has_all_teachers?
     @applicant.science_teacher_email.present? && @applicant.math_teacher_email.present? && @applicant.english_teacher_email.present?
+  end
+  
+  private
+  def find_applicant_or_redirect
+    applicant = Applicant.find_by_id(params[:id])
+    unless applicant
+     flash[:notice] = "This applicant does not exist"
+     redirect_to coordinator_applicants_path
+    end
+    applicant
   end
 
 end

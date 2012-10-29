@@ -17,7 +17,7 @@ class Applicant < ActiveRecord::Base
   validates :address, presence:true
   VALID_PHONE_REGEX = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
   validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
-  validates :work_phone, format: {with:VALID_PHONE_REGEX}
+  validates :work_phone, presence: true, format: {with:VALID_PHONE_REGEX}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: {with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive:false}
   validates :math_teacher, presence:true, length: {maximum: 50}

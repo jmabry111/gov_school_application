@@ -3,7 +3,7 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(applicant)
     @applicant = applicant
-    mail(:to => @applicant.school.representative_email, :subject => "Submitted Application")
+    mail(:to => @applicant.school.user.email, :subject => "Submitted Application")
   end
   
   def invitations_message(teacher_recommendation)

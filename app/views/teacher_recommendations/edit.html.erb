@@ -9,6 +9,10 @@
 				Applicant: 
 				<%= @teacher_recommendation.applicant.first_name %>
 				<%= @teacher_recommendation.applicant.last_name %>
+			</h3>
+			<h3>
+				Subject Area:
+				<%= @teacher_recommendation.subject %>
 			</h3><hr />
 				<h3>Please rate the candidate in the following categories by checking the appropriate number based on the following rating scale.</h3>
 				<p>
@@ -103,10 +107,9 @@
 				<hr />
 				</div>
 				<div class="input-xlarge">
-				<%= f.input :subject, :label => "Subject Area" %>
-				<hr />
 				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
 			<% end %>
+			<br /><br />
 		</div>
 	</div>
 </div>
