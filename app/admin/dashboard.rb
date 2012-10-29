@@ -10,7 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
 #      end
 #    end
   
-  columns do
+#  columns do
     
 #    column do
 #      panel "Recent Applicants" do
