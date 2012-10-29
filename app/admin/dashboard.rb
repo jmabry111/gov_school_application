@@ -12,18 +12,18 @@ ActiveAdmin.register_page "Dashboard" do
   
   columns do
     
-    column do
-      panel "Recent Applicants" do
-        table_for Applicant.order('last_name').limit(10) do
-          column("Name")    {|applicant| applicant.first_name + " " + applicant.last_name}
-          column("School")  {|applicant| applicant.school.name}
-          column("Science Recommendation Teacher")  {|applicant| applicant.science_recommendation.teacher_name}
-          column("Math Recommendation Teacher")  {|applicant| applicant.math_recommendation.teacher_name}
-          column("English Recommendation Teacher")  {|applicant| applicant.english_recommendation.teacher_name}
-        end
-      end
-    end
-  end
+#    column do
+#      panel "Recent Applicants" do
+#        table_for Applicant.order('last_name').limit(10) do
+#          column("Name")    {|applicant| applicant.first_name + " " + applicant.last_name}
+#          column("School")  {|applicant| applicant.school.name}
+#          column("Science Recommendation Teacher")  {|applicant| applicant.science_recommendation.teacher_name}
+#          column("Math Recommendation Teacher")  {|applicant| applicant.math_recommendation.teacher_name}
+#          column("English Recommendation Teacher")  {|applicant| applicant.english_recommendation.teacher_name}
+#        end
+#      end
+#    end
+#  end
   
   columns do
     column do
