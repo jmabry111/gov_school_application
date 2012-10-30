@@ -32,7 +32,7 @@
 		<h3>School: <%= @applicant.school.name %></h3><br /><br />
 		<%= f.input :school_phone, :label => "School Phone" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
-		<%= f.input :gpa, :label => "Unweighted GPA" %>
+		<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text} %>
 		<p>
 			Please attach an official copy of the student's transcript and an official copy of most 
 			recent standardized test data.
