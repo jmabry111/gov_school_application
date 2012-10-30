@@ -1,9 +1,7 @@
 <h1>Teacher Recommendations</h1>
 <div class="row">
 	<div class="span10 offset1">
-		<div class="input-xlarge">
-			<%= simple_form_for @teacher_recommendation do |f| -%>
-		</div>
+		<%= simple_form_for @teacher_recommendation do |f| -%>
 		<div class="form-horizontal">
 			<h3>
 				Applicant: 
@@ -24,12 +22,14 @@
 				</p>
 				<%= render 'shared/error_messages', object: f.object %>
 				<%= 
-					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline,
+					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
 				 	:input_html => {:value => @teacher_recommendation.desire}, 
 					:label => "Shows desire and curiosity for learning" 
 				%>
 				<%= 
-					f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline,
+					f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
+					:item_wrapper_class => :inline,
 				 	:input_html => {:value => @teacher_recommendation.aptitude},
 				 	:label => "Has aptitude and potential for study in math, science, technology and communications"
 				%>
@@ -93,20 +93,16 @@
 				 	:input_html => {:value => @teacher_recommendation.work_ethic},
 					:label => "Has exceptional work ethic"
 				%>
+		</div>
+		<div class="span6">
 				<hr />
 					<h3>Please indicate your general recommendation for this student.</h3>
-				<p>
-					0 = Do not recommend
-					1 = Recommend with reservations
-					3 = Recommend
-					5 = Highly recommend
-				</p>
-				<%= f.input :recommendation, :collection => ["0","1","3","5"], :as => :radio_buttons, 
+				<%= f.input :recommendation, :collection => [["Do not recommend", 0],["Recommend with reservations", 1],
+					["Recommend", 3],["Highly recommend", 5]], :as => :collection_select,
 					:item_wrapper_class => :inline,
-				 	:input_html => {:value => @teacher_recommendation.recommendation} %>
+				 	:input_html => {:value => @teacher_recommendation.recommendation}
+				%>
 				<hr />
-				</div>
-				<div class="input-xlarge">
 				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
 			<% end %>
 			<br /><br />

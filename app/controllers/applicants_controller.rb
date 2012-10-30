@@ -23,4 +23,19 @@ class ApplicantsController < ApplicationController
       end
     end
   end
+  
+  def show
+    @applicant = find_applicant_or_redirect
+  end
+  
+  
+  private
+  def find_applicant_or_redirect
+    applicant = Applicant.find_by_id(params[:id])
+    unless applicant
+     flash[:notice] = "This applicant does not exist"
+     redirect_to coordinator_applicants_path
+    end
+    applicant
+  end
 end
