@@ -10,6 +10,7 @@ ActiveAdmin.register User do
     f.inputs "User Details" do
       f.input :email
       f.input :school
+      f.input :admin
     end
     f.buttons
   end
