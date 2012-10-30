@@ -12,10 +12,14 @@
 		 	:item_wrapper_class => :inline%>
 		<%= f.input :parent_first_name, :label => "Parent/Guardian First Name", :input_html => {:value => @applicant.parent_first_name} %> 
 		<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name", :input_html => {:value => @applicant.parent_last_name} %>
-		<%= f.input :address, :label => "Home Address", :input_html => {:value => @applicant.address} %>
+		<%= f.input :address, :label => "Street Address", :input_html => {:value => @applicant.address} %>
+		<%= f.input :city, :label => "city", :input_html => {:value => @applicant.city} %>
+		<%= f.input :state, :label => "State", :input_html => {:value => @applicant.state} %>
+		<%= f.input :zip, :label => "Zip", :input_html => {:value => @applicant.zip} %>
 		<%= f.input :home_phone, :label => "Home Phone", :input_html => {:value => @applicant.home_phone} %>
 		<%= f.input :work_phone, :label => "Work Phone", :input_html => {:value => @applicant.work_phone} %>
-		<%= f.input :email, :label => "Email", :input_html => {:value => @applicant.email} %>
+		<%= f.input :email, :label => "Parent Email", :input_html => {:value => @applicant.email} %>
+		<%= f.input :applicant_email, :label => "Student Email", :input_html => {:value => @applicant.applicant_email} %>
 	<hr />
 	<p>
 		Names of Teachers Completing Recommendations:
@@ -28,10 +32,10 @@
 		<h3>School: <%= @applicant.school.name %></h3><br /><br />
 		<%= f.input :school_phone, :label => "School Phone" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
+		<%= f.input :gpa, :label => "Unweighted GPA" %>
 		<p>
-			Please attach an official copy of the student's transcript with the GPA 
-		   calculated as unweighted and an official copy of most recent standardized 
-		   test data.
+			Please attach an official copy of the student's transcript and an official copy of most 
+			recent standardized test data.
 		</p>
 		<%= f.input :due_to, :label => "Information due to" %>
 		<%= f.input :date_due, :as => :string, :label => "Date Due" %>
