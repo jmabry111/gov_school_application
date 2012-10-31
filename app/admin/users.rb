@@ -8,6 +8,7 @@ ActiveAdmin.register User do
   end
   form do |f|
     f.inputs "User Details" do
+      f.input :name
       f.input :email
       f.input :school
       f.input :admin

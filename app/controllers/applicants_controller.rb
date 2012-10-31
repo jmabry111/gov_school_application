@@ -14,6 +14,8 @@ class ApplicantsController < ApplicationController
     respond_to do |format|
       if @applicant.save
         NotificationsMailer.new_message(@applicant).deliver
+        NotificationsMailer.confirmation_message(@applicant).deliver
+        NotificationsMailer.parent_confirmation_message(@applicant).deliver
         format.html { redirect_to success_path, notice: 'Information was successfully submitted.' }
         format.json { render json: @applicant, status: :created, location: @applicant }
       else

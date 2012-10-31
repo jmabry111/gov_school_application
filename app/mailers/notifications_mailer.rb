@@ -3,11 +3,21 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(applicant)
     @applicant = applicant
-    mail(:to => @applicant.school.user.email, :subject => "Submitted Application")
+    mail(:to => @applicant.school.user.email, :subject => "Piedmont Governor's School Submitted Application")
   end
   
   def invitations_message(teacher_recommendation)
     @teacher_recommendation = teacher_recommendation
-    mail(:to => @teacher_recommendation.email, :subject => "Faculty Recommendation")
+    mail(:to => @teacher_recommendation.email, :subject => "Piedmont Governor's School Faculty Recommendation")
+  end
+  
+  def confirmation_message(applicant)
+    @applicant = applicant
+    mail(:to => @applicant.applicant_email, :subject => "Piedmont Governor's School Application Confirmation")
+  end
+  
+  def parent_confirmation_message(applicant)
+    @applicant = applicant
+    mail(:to => @applicant.email, :subject => "Piedmont Governor's School Application Confirmation")
   end
 end

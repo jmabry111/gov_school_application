@@ -34,12 +34,22 @@
 		</tr>
 		<tr class="noborder">
 			<td class="noborder" colspan="2">
-				Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %>
+				Parent Name: <%= @applicant.parent_first_name %> <%= @applicant.parent_last_name %><br />
 			</td>
 		</tr>
 		<tr class="noborder">
 			<td class="noborder" colspan="2">
-				Home Address: <%= @applicant.address %>
+				<table class="noborder">
+					<tr class="noborder">
+						<td style="vertical-align:top;" class="noborder">
+							Home Address:
+						</td>
+						<td class="noborder"> 
+							<%= @applicant.address %><br />
+							<%= @applicant.city %>, <%= @applicant.state %> <%= @applicant.zip %><br />			              
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 		<tr class="noborder">
@@ -51,7 +61,10 @@
 			</td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder" colspan="2">Email Address: <%= @applicant.email %></td>
+			<td class="noborder" colspan="2">Parent Email Address: <%= @applicant.email %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">Student Email Address: <%= @applicant.applicant_email %></td>
 		</tr>
 	</table>
 	<br /><br />
@@ -92,16 +105,47 @@
   <div class="span9 offset2">
 	<h2>Gifted Coordinator/Guidance Counselor Submitted Section</h2>
 	<hr />
-	<p>High School: <%= @applicant.school.name %></p>
-	<p>School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %></p>
-	<p>Name of Guidance Counselor or Designee: <%= @applicant.counselor_name %></p>
+	<table class="noborder" style="width:100%;">
+		<tr class="noborder">
+			<td class="noborder">
+					High School: <%= @applicant.school.name %> 
+			</td>
+			<td class="noborder">
+				<% if @applicant.school_phone.present? %>
+					School Phone: <%= number_to_phone(@applicant.school_phone, :area_code => true) %>
+				<% end %>				
+			</td>
+		</tr>
+		<% if @applicant.counselor_name.present? %>
+			<tr class="noborder">
+				<td class="noborder" colspan="2">
+						Name of Guidance Counselor or Designee: <%= @applicant.counselor_name %>
+				</td>
+			</tr>	
+		<% end %>
+		<tr class="noborder">
+			<td class="noborder" colpan="2">
+				Unweighted GPA: <%= @applicant.gpa %>
+			</td>
+		</tr>	
+		<% if @applicant.due_to.present? %>
+			<tr class="noborder">
+				<td class="noborder" colspan="2">
+						Information Due To: <%= @applicant.due_to %>
+				</td>
+			</tr>	
+		<% end %>
+		<tr class="noborder">
+			<td class="noborder" colspan="2">
+				<% if @applicant.date_due.present?%>
+					<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
+				<% end %>
+			</td>
+		</tr>
+	</table>
 	<p style="font-weight:bold;">
-		Please attach an official copy of the student's transcript with the GPA calculated as unweighted and an official
-		copy of most recent standardized test data.
+		Please attach an official copy of the student's transcript and an official copy of most 
+		recent standardized test data.
 	</p>
-	<p>Information Due To: <%= @applicant.due_to %></p>
-	<% if @applicant.date_due.present?%>
-	<p>Date Due: <%= @applicant.date_due.strftime("%m/%d/%Y") %></p>
-	<% end %>
   </div>
 </div>

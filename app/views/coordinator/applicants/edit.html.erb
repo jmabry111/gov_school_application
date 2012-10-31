@@ -13,9 +13,9 @@
 		<%= f.input :parent_first_name, :label => "Parent/Guardian First Name", :input_html => {:value => @applicant.parent_first_name} %> 
 		<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name", :input_html => {:value => @applicant.parent_last_name} %>
 		<%= f.input :address, :label => "Street Address", :input_html => {:value => @applicant.address} %>
-		<%= f.input :city, :label => "city", :input_html => {:value => @applicant.city} %>
-		<%= f.input :state, :label => "State", :input_html => {:value => @applicant.state} %>
-		<%= f.input :zip, :label => "Zip", :input_html => {:value => @applicant.zip} %>
+		<%= f.input :city, :label => "City", :input_html => {:value => @applicant.city} %>
+		<%= f.input :state, :label => "State", :input_html => {:value => @applicant.state, :maxlength => 2} %>
+		<%= f.input :zip, :label => "5 Digit Zip", :input_html => {:value => @applicant.zip, :maxlength => 5} %>
 		<%= f.input :home_phone, :label => "Home Phone", :input_html => {:value => @applicant.home_phone} %>
 		<%= f.input :work_phone, :label => "Work Phone", :input_html => {:value => @applicant.work_phone} %>
 		<%= f.input :email, :label => "Parent Email", :input_html => {:value => @applicant.email} %>
@@ -32,7 +32,8 @@
 		<h3>School: <%= @applicant.school.name %></h3><br /><br />
 		<%= f.input :school_phone, :label => "School Phone" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
-		<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text} %>
+		<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text, :pattern => "[0-9]*", 
+					:maxlength => 4, :value => @applicant.gpa} %>
 		<p>
 			Please attach an official copy of the student's transcript and an official copy of most 
 			recent standardized test data.

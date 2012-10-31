@@ -1,4 +1,8 @@
 <h1>Teacher Recommendations</h1>
+	<h2>
+		**This is a secure form.**<br />
+		**The results will only be viewed by authorized district personnel.**
+	</h2>
 <div class="row">
 	<div class="span10 offset1">
 		<%= simple_form_for @teacher_recommendation do |f| -%>
@@ -11,7 +15,7 @@
 			<h3>
 				Subject Area:
 				<%= @teacher_recommendation.subject %>
-			</h3><hr />
+			</h3><hr />	
 				<h3>Please rate the candidate in the following categories by checking the appropriate number based on the following rating scale.</h3>
 				<p>
 					1 = Not observed
