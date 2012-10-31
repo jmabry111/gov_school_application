@@ -13,6 +13,7 @@ class ApplicantsController < ApplicationController
     
     respond_to do |format|
       if @applicant.save
+        session[:current_applicant] = @applicant.id
         NotificationsMailer.new_message(@applicant).deliver
         NotificationsMailer.confirmation_message(@applicant).deliver
         NotificationsMailer.parent_confirmation_message(@applicant).deliver

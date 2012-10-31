@@ -1,8 +1,13 @@
+<% @applicant = Applicant.find(session[:current_applicant])  %>
 <div class="center hero-unit">
 	<p>
 		Thank you for your interest in the <%= link_to "Piedmont Governor's School", "http://www.pgsmst.com" %>.
 	</p>
 	<p>
-		Your application has now been submitted. Please check with your school's counselor or designee for status updates on your application.
+		Your application has now been submitted.
+	</p>
+	<p>
+		If you have any questions/concerns about your application <br />
+		please contact <%= @applicant.school.user.name %> at <%= @applicant.school.name %>.
 	</p>
 </div>

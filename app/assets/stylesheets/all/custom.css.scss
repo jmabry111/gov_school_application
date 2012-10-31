@@ -144,3 +144,18 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+/* footer */
+
+footer{
+	margin-top:45px;
+	padding-top:5px;
+	border-top:1px solid #eaeaea;
+	color:#696969;
+	a{
+		color:#696969;
+		&:hover{
+			color:#2F4F4F;
+		}
+	}
+}

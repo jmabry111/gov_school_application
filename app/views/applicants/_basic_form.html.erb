@@ -8,7 +8,7 @@
 	<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 	<%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %> 
 	<%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %>
-	<%= f.input :address, :label => "Street Address" %>
+	<%= f.input :address, :label => "Parent Street Address" %>
 	<%= f.input :city %>
 	<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
 	<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
@@ -22,6 +22,8 @@
 		<%= f.input :math_teacher, :label => "Math:", :input_html => {:value => @applicant.math_teacher} %>
 		<%= f.input :science_teacher, :label => "Science:", :input_html => {:value => @applicant.science_teacher} %>
 		<%= f.input :english_teacher, :label => "English:", :input_html => {:value => @applicant.english_teacher} %>
+		<%= f.input :teacher_contacted, :as => :boolean, :inline_label => "I verify that I have contacted 
+					the above teachers concerning these recommendations.", :label => "Teachers Contacted"%>
 	</p>
 	<hr />
 	<p class="confirm">

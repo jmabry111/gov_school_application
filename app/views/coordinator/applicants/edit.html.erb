@@ -39,7 +39,8 @@
 			recent standardized test data.
 		</p>
 		<%= f.input :due_to, :label => "Information due to" %>
-		<%= f.input :date_due, :as => :string, :label => "Date Due" %>
+		<%= f.input :date_due, :as => :string, :label => "Date Due", 
+					:input_html => {:value => @applicant.date_due.strftime("%m/%d/%Y")}%>
 		<%= f.submit "Submit school information", class: "btn btn-large" %>
 	<% end %>
 	<br /><br /><br />

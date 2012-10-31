@@ -2,7 +2,7 @@ class Applicant < ActiveRecord::Base
   attr_accessible :address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, 
     :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone,
     :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, 
-    :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa
+    :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted
     belongs_to :school
     has_many :teacher_recommendations
   
@@ -34,6 +34,7 @@ class Applicant < ActiveRecord::Base
   validates :applicant_email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive:false}
   VALID_GPA_REGEX = /^[0]|[0-3]\.(\d?\d?)|[4].[0]$/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
+  validates :teacher_contacted, presence:true
   
   
 
