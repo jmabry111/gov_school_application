@@ -1,10 +1,9 @@
-# User confirmation email
-
 __
 
 # Status on Teacher Recommendations
 * Icon indicating completion on show page
 * Status message indicating how many recommendations returned on index page
+* Ability to send reminder notification to teachers
 
 ---
 
