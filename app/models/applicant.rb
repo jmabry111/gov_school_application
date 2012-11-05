@@ -34,7 +34,7 @@ class Applicant < ActiveRecord::Base
   validates :applicant_email, allow_blank:true, format: {with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive:false}
   VALID_GPA_REGEX = /^[0]|[0-3]\.(\d?\d?)|[4].[0]$/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
-  validates :teacher_contacted, presence:true
+  validates :teacher_contacted, presence:true, on: :create
   
   
 
@@ -51,11 +51,25 @@ class Applicant < ActiveRecord::Base
   def science_recommendation
     science_recommendation = find_recommendation_by_subject("Science")
   end
+  def science_recommendation_complete?
+    science_recommendation = find_recommendation_by_subject("Science")
+    science_recommendation.recommendation == nil
+  end
+  
   def math_recommendation
     math_recommendation = find_recommendation_by_subject("Math")
   end
+  def math_recommendation_complete?
+    math_recommendation = find_recommendation_by_subject("Math")
+    math_recommendation.recommendation == nil
+  end
+    
   def english_recommendation
     english_recommendation = find_recommendation_by_subject("English")
+  end
+  def english_recommendation_complete?
+    english_recommendation = find_recommendation_by_subject("English")
+    english_recommendation.recommendation == nil
   end
  
   
@@ -64,7 +78,6 @@ class Applicant < ActiveRecord::Base
   def find_recommendation_by_subject(subject)
     teacher_recommendation = teacher_recommendations.find_by_subject(subject)
   end
-
   def remove_non_digit_characters(string)
     if string.present?
       string.gsub(/[^0-9]/, "")

@@ -27,10 +27,14 @@ class TeacherRecommendation < ActiveRecord::Base
       end
   end
   
-  def complete?
+  def created?
     self.aptitude == nil
   end
-
+  
+  def complete?
+    aptitude.present? && dedication.present? && desire.present?
+  end
+  
   
   def to_param
     self.slug

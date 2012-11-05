@@ -4,16 +4,52 @@
 	<h2>Faculty Recommendations</h2>
 	  <div class="span12">
 		<%if @applicant.science_recommendation.present? %>
-			<span class="span-one-third"><%= link_to "Science Recommendation", 
-					coordinator_teacher_recommendation_path(@applicant.science_recommendation) %></span>
+			<span class="span-one-third">
+				<%= link_to "Science Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.science_recommendation) %>
+				<% if @applicant.science_recommendation_complete? %>
+					<%= image_tag("x.png") %><br />
+					<span class="not_complete">
+						<%= button_to "Send Reminder", 
+							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.science_recommendation),
+						 	class: "btn btn-mini" %>
+					</span>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
 		<%end %>
-		<%if @applicant.science_recommendation.present? %>
-			<span class="span-one-third offset-one-third"><%= link_to "Math Recommendation", 
-					coordinator_teacher_recommendation_path(@applicant.math_recommendation) %></span>
+		<%if @applicant.math_recommendation.present? %>
+			<span class="span-one-third offset-one-third">
+				<%= link_to "Math Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.math_recommendation) %>
+				<% if @applicant.math_recommendation_complete? %>
+					<%= image_tag("x.png") %><br />
+					<span class="not_complete">
+						<%= button_to "Send Reminder", 
+							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.math_recommendation),
+						 	class: "btn btn-mini" %>
+					</span>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
 		<% end %>
-		<%if @applicant.science_recommendation.present? %>
-			<span class="span-one-third offset-two-thirds"><%= link_to "English Recommendation", 
-					coordinator_teacher_recommendation_path(@applicant.english_recommendation) %></span>
+		<%if @applicant.english_recommendation.present? %>
+			<span class="span-one-third offset-two-thirds">
+				<%= link_to "English Recommendation", 
+						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
+				<% if @applicant.english_recommendation_complete? %>
+					<%= image_tag("x.png") %><br />
+					<span class="not_complete">
+						<%= button_to "Send Reminder", 
+							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.english_recommendation),
+						 	class: "btn btn-mini" %>
+					</span>
+				<% else %>
+					<%= image_tag("check.png") %>
+				<% end %>
+			</span>
 		<% end %>
 	  </div>
   </div>

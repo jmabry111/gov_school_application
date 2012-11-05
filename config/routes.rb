@@ -16,7 +16,9 @@ GovSchoolApplication::Application.routes.draw do
         put 'create_invitations'
       end
     end
-    resources :teacher_recommendations, :only => [:show]
+    resources :teacher_recommendations, :only => [:show] do
+      resources :recommendation_reminders, :only => [:create, :new]
+    end
   end
   
   get "static_pages/info"
