@@ -19,12 +19,12 @@ class Applicant < ActiveRecord::Base
   validates :home_phone, presence:true, format: {with:VALID_PHONE_REGEX}
   validates :work_phone, presence: true, format: {with:VALID_PHONE_REGEX}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: {with:VALID_EMAIL_REGEX}, uniqueness: {case_sensitive:false}
+  validates :email, presence: true, format: {with:VALID_EMAIL_REGEX}
   validates :math_teacher, presence:true, length: {maximum: 50}
   validates :science_teacher, presence:true, length: {maximum: 50}
   validates :english_teacher, presence:true, length: {maximum: 50}
-  validates :applicant_confirmation, presence:true
-  validates :parent_confirmation, presence:true
+  validates :applicant_confirmation, presence:true, on: :create
+  validates :parent_confirmation, presence:true, on: :create
   validates :school_phone, allow_blank:true, format: {with:VALID_PHONE_REGEX}, on: :update
   validates :date_due, presence:true, on: :update
   validates :city, presence:true

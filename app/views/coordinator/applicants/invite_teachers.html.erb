@@ -7,9 +7,9 @@
     <%= simple_form_for @applicant, :url =>create_invitations_coordinator_applicant_path(@applicant.id) do |f| -%>
 		<%= f.input :science_teacher, :input_html => {:value => @applicant.science_teacher} %>
 		<%= f.input :science_teacher_email, :label => "Science Teacher Email" %>
-		<%= f.input :science_teacher, :input_html => {:value => @applicant.math_teacher} %>
+		<%= f.input :math_teacher, :input_html => {:value => @applicant.math_teacher} %>
 		<%= f.input :math_teacher_email, :label => "Math Teacher Email" %>
-		<%= f.input :science_teacher, :input_html => {:value => @applicant.english_teacher} %>
+		<%= f.input :english_teacher, :input_html => {:value => @applicant.english_teacher} %>
 		<%= f.input :english_teacher_email, :label => "English Teacher Email" %>
 		<%= f.submit "Send Teacher Invitations", :class => "btn btn-large" %>
 	<% end %>
