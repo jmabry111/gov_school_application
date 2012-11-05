@@ -11,6 +11,11 @@ class NotificationsMailer < ActionMailer::Base
     mail(:to => @teacher_recommendation.email, :subject => "Piedmont Governor's School Faculty Recommendation")
   end
   
+  def reminder_message(teacher_recommendation)    
+    @teacher_recommendation = teacher_recommendation
+    mail(:to => @teacher_recommendation.email, :subject => "Piedmont Governor's School Recommendation Reminder")
+  end
+  
   def confirmation_message(applicant)
     @applicant = applicant
     mail(:to => @applicant.applicant_email, :subject => "Piedmont Governor's School Application Confirmation")
@@ -20,4 +25,5 @@ class NotificationsMailer < ActionMailer::Base
     @applicant = applicant
     mail(:to => @applicant.email, :subject => "Piedmont Governor's School Application Confirmation")
   end
+  
 end

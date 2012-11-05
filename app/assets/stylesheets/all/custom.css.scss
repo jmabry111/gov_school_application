@@ -159,3 +159,13 @@ footer{
 		}
 	}
 }
+
+.not_complete{
+	text-align:center;
+	a{
+	color:#B81324;
+	&:hover{
+		color:#B81324;
+	}
+	}
+}

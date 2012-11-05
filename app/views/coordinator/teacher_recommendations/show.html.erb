@@ -1,9 +1,14 @@
 <div class="row">
 	<div class="span10 offset1">
-		<% if @teacher_recommendation.complete? %>
-			<h1>Recommendation not yet complete<br />
-			<%= link_to "Return to Applicant Page", 
-				coordinator_applicant_path(@teacher_recommendation.applicant.id) %></h1>
+		<% if @teacher_recommendation.created? %>
+			<h1>
+				Recommendation not yet complete<br />
+				<%= link_to "Return to Applicant Page", 
+					coordinator_applicant_path(@teacher_recommendation.applicant.id) %><br />
+				<%= button_to "Send Reminder", 
+					coordinator_teacher_recommendation_recommendation_reminders_path(@teacher_recommendation.slug),
+				 	:method => :post, class: "btn btn-medium" %>
+			</h1>
 		<% end %>
 		<h3 class="recommend">Faculty Recommendation for 
 			<%= @teacher_recommendation.applicant.first_name %> 
