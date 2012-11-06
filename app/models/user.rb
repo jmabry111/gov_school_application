@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
                   :last_sign_in_at, :last_sign_in_at, :last_sign_in_at, :current_sign_in_ip, 
                   :last_sign_in_ip, :admin, :name
   
-  belongs_to :school
+  has_many :schools
+  has_many :applicants, :through => :schools
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

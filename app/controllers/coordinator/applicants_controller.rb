@@ -6,7 +6,9 @@ class Coordinator::ApplicantsController < ApplicationController
     if current_user.is_admin?
       @applicants = Applicant.paginate(page: params[:page])
     else
-      @applicants = current_user.school.applicants.paginate(page: params[:page])
+      #@applicants = Applicant.paginate(page: params[:page])
+      @applicants = current_user.applicants.paginate(page: params[:page])
+      #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
     end
   end
 
