@@ -9,11 +9,16 @@
 						coordinator_teacher_recommendation_path(@applicant.science_recommendation) %>
 				<% if @applicant.science_recommendation_complete? %>
 					<%= image_tag("x.png") %><br />
-					<span class="not_complete">
+					<div class="not_complete">
+						<% if @applicant.science_recommendation.last_notified_at.present? %>
+							Last reminded <%= time_ago_in_words(@applicant.science_recommendation.last_notified_at) %> ago.
+						<% else %>
+							No reminders sent.
+						<% end %>
 						<%= button_to "Send Reminder", 
 							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.science_recommendation),
 						 	class: "btn btn-mini" %>
-					</span>
+					</div>
 				<% else %>
 					<%= image_tag("check.png") %>
 				<% end %>
@@ -25,11 +30,16 @@
 						coordinator_teacher_recommendation_path(@applicant.math_recommendation) %>
 				<% if @applicant.math_recommendation_complete? %>
 					<%= image_tag("x.png") %><br />
-					<span class="not_complete">
+					<div class="not_complete">
+						<% if @applicant.math_recommendation.last_notified_at.present? %>
+							Last reminded <%= time_ago_in_words(@applicant.math_recommendation.last_notified_at) %> ago.
+						<% else %>
+							No reminders sent.
+						<% end %>
 						<%= button_to "Send Reminder", 
 							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.math_recommendation),
 						 	class: "btn btn-mini" %>
-					</span>
+					</div>
 				<% else %>
 					<%= image_tag("check.png") %>
 				<% end %>
@@ -41,11 +51,16 @@
 						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
 				<% if @applicant.english_recommendation_complete? %>
 					<%= image_tag("x.png") %><br />
-					<span class="not_complete">
+					<div class="not_complete">
+						<% if @applicant.english_recommendation.last_notified_at.present? %>
+							Last reminded <%= time_ago_in_words(@applicant.english_recommendation.last_notified_at) %> ago.
+						<% else %>
+							No reminders sent.
+						<% end %>
 						<%= button_to "Send Reminder", 
 							coordinator_teacher_recommendation_recommendation_reminders_path(@applicant.english_recommendation),
 						 	class: "btn btn-mini" %>
-					</span>
+					</div>
 				<% else %>
 					<%= image_tag("check.png") %>
 				<% end %>

@@ -5,8 +5,7 @@
 	<%= simple_form_for @school do |f| -%>	
 		<%= render 'shared/error_messages', object: f.object %>
 		<%= f.input(:name, :input_html => {:value => @school.name}) %>
-		<%= f.input(:representative_email, :input_html => {:value => @school.representative_email}) %>
-		<%= f.submit "Update school", class: "btn btn-large" %>
+		<%= f.association :user %>
 	<% end %>
   </div>
 </div>

@@ -14,9 +14,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//=require jquery.ui.all
+//= require jquery.ui.all
+
 
 $(function() {
 	$("input#applicant_date_due").datepicker({dateFormat: 'D, M dd yy'});
 	$("input#teacher_recommendation_date_submitted").datepicker({dateFormat: 'D, M dd yy'});
 });
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106152830) do
+ActiveRecord::Schema.define(:version => 20121112164254) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -114,13 +114,14 @@ ActiveRecord::Schema.define(:version => 20121106152830) do
     t.integer  "recommendation"
     t.string   "subject"
     t.date     "date_submitted"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "applicant_id"
     t.string   "email"
     t.string   "teacher_name"
     t.string   "token"
     t.string   "slug"
+    t.datetime "last_notified_at"
   end
 
   add_index "teacher_recommendations", ["slug"], :name => "index_teacher_recommendations_on_slug", :unique => true
