@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
                   :remember_created_at, :current_sign_in_at, :current_sign_in_at, :current_sign_in_at, 
                   :current_sign_in_at, :current_sign_in_at, :last_sign_in_at, :last_sign_in_at, 
                   :last_sign_in_at, :last_sign_in_at, :last_sign_in_at, :current_sign_in_ip, 
-                  :last_sign_in_ip, :admin, :name
+                  :last_sign_in_ip, :name
   
   has_many :schools
   has_many :applicants, :through => :schools

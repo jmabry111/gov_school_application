@@ -1,7 +1,8 @@
-<li>
-	<%= link_to applicant, coordinator_applicant_path(applicant) %>
-	- <%= applicant.school.name %>
-</li>
 <li class="evenrow">
-	<%= link_to "Edit Information", edit_coordinator_applicant_path(applicant) %> 
+	<% if applicant.gpa.present? %>
+		<%= link_to applicant, coordinator_applicant_path(applicant) %>
+	<% else %>
+		<%= link_to applicant, edit_coordinator_applicant_path(applicant) %> 
+	<% end %>	
+	- <%= applicant.school.name %>		
 </li>

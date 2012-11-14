@@ -4,7 +4,14 @@
 <%= will_paginate %>
 
 <ul class="applicants">
-	<% @applicants.each do |a| %>
-		<%= render a %>
+	<% if @applicants.present? %>
+		<% @applicants.each do |a| %>
+			<%= render a %>
+		<% end %>
+	<% else %>
+		<h2>
+			There are currently no applicants.<br />
+			You will be notified by email when the first application is submitted.
+		</h2>
 	<% end %>
 </ul>
