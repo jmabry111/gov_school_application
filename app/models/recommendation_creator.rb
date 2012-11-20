@@ -13,15 +13,15 @@ class RecommendationCreator
   private
   
   def create_science_recommendation
-    teacher_recommendation = create_recommendation('Science', @applicant.science_teacher_email, @applicant.science_teacher)
+    create_recommendation('Science', @applicant.science_teacher_email, @applicant.science_teacher)
   end
   
   def create_math_recommendation
-    teacher_recommendation = create_recommendation('Math', @applicant.math_teacher_email, @applicant.math_teacher)
+    create_recommendation('Math', @applicant.math_teacher_email, @applicant.math_teacher)
   end
   
   def create_english_recommendation
-    teacher_recommendation = create_recommendation('English', @applicant.english_teacher_email, @applicant.english_teacher)
+    create_recommendation('English', @applicant.english_teacher_email, @applicant.english_teacher)
   end
   
   def mail_recommendation(teacher_recommendation)
