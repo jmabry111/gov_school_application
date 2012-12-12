@@ -11,18 +11,17 @@ class ApplicantsController < ApplicationController
     @applicant = Applicant.new(params[:applicant])
     @school = [School.list].flatten
     
-    respond_to do |format|
       if @applicant.save
         session[:current_applicant] = @applicant.id
+        # Send notification to school rep
         NotificationsMailer.new_message(@applicant).deliver
+        # Send notification to applicant(if email is provided)
         NotificationsMailer.confirmation_message(@applicant).deliver
+        # Send notification to applicant's parent(if email is provided)
         NotificationsMailer.parent_confirmation_message(@applicant).deliver
-        format.html { redirect_to success_path, notice: 'Information was successfully submitted.' }
-        format.json { render json: @applicant, status: :created, location: @applicant }
+        redirect_to success_path, notice: 'Information was successfully submitted.'
       else
-        format.html { render action: "new" }
-        #format.json { render json: @applicant.errors, status: :unprocessable_entity }
-       #render 'new'
+        render action: "new"
       end
     end
   end
