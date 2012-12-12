@@ -13,12 +13,7 @@ class ApplicantsController < ApplicationController
     
       if @applicant.save
         session[:current_applicant] = @applicant.id
-        # Send notification to school rep
-        NotificationsMailer.new_message(@applicant).deliver
-        # Send notification to applicant(if email is provided)
-        NotificationsMailer.confirmation_message(@applicant).deliver
-        # Send notification to applicant's parent(if email is provided)
-        NotificationsMailer.parent_confirmation_message(@applicant).deliver
+        send_notifications
         redirect_to success_path, notice: 'Information was successfully submitted.'
       else
         render action: "new"
@@ -38,5 +33,18 @@ class ApplicantsController < ApplicationController
      redirect_to coordinator_applicants_path
     end
     applicant
+  end
+  
+  def send_notifications
+    # Send notification to school rep
+    NotificationsMailer.new_message(@applicant).deliver
+    # Send notification to applicant(if email is provided)
+    if @applicant.applicant_email.present?
+      NotificationsMailer.confirmation_message(@applicant).deliver
+    end
+    # Send notification to applicant's parent(if email is provided)
+    if @applicant.applicant_email.present?
+      NotificationsMailer.parent_confirmation_message(@applicant).deliver
+    end
   end
 end
