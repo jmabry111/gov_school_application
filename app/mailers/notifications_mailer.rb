@@ -18,14 +18,14 @@ class NotificationsMailer < ActionMailer::Base
   
   def confirmation_message(applicant)
     @applicant = applicant
-    if @applicant.applicant_email != nil
+    if @applicant.applicant_email.present?
       mail(:to => @applicant.applicant_email, :subject => "Piedmont Governor's School Application Confirmation")
     end
   end
   
   def parent_confirmation_message(applicant)
     @applicant = applicant
-    if @applicant.email != nil
+    if @applicant.email.present?
       mail(:to => @applicant.email, :subject => "Piedmont Governor's School Application Confirmation")
     end
   end
