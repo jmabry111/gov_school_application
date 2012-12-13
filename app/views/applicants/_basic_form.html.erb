@@ -12,8 +12,8 @@
 	<%= f.input :city %>
 	<%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %>
 	<%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %>
-	<%= f.input :home_phone, :label => "Parent Home Phone" %>
-	<%= f.input :work_phone, :label => "Parent Work Phone" %>
+	<%= f.input :home_phone, :label => "Parent Home Phone", :placeholder => "555-555-1212" %>
+	<%= f.input :work_phone, :label => "Parent Work Phone", :placeholder => "555-555-1212" %>
 	<%= f.input :email, :label => "Parent Email" %>
 	<%= f.input :applicant_email, :label => "Student Email" %>
 	<hr />
