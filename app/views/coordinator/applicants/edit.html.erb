@@ -30,7 +30,7 @@
   </div>
 <div class="span6 offset3">
 		<h3>School: <%= @applicant.school.name %></h3><br /><br />
-		<%= f.input :school_phone, :label => "School Phone" %>
+		<%= f.input :school_phone, :label => "School Phone", :placeholder => "555-555-1212" %>
 		<%= f.input :counselor_name, :label => "Name of Guidance Counselor Designee" %>
 		<%= f.input :gpa, :label => "Unweighted GPA", :input_html => {:type => :text, :pattern => "[0-9]*", 
 					:maxlength => 4, :value => @applicant.gpa} %>
