@@ -38,10 +38,15 @@ class Coordinator::ApplicantsController < ApplicationController
     @applicant = find_applicant_or_redirect
     @applicant.update_attributes(params[:applicant])
     if has_all_teachers?
-      #call your recommendation generator here
-      RecommendationCreator.new(@applicant).create_recommendations
-      flash[:success] = "Invitations successfully sent"
-      redirect_to coordinator_applicants_path
+      if emails_in_correct_format?
+        #call your recommendation generator here
+        RecommendationCreator.new(@applicant).create_recommendations
+        flash[:success] = "Invitations successfully sent"
+        redirect_to coordinator_applicants_path
+      else
+        flash[:notice] = "Please enter a valid email address for each teacher."
+        redirect_to invite_teachers_coordinator_applicant_path(@applicant)
+      end
     else
       flash[:notice] = "You must provide an email address for all teachers!"
       redirect_to invite_teachers_coordinator_applicant_path(@applicant)
@@ -55,6 +60,12 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def has_all_teachers?
     @applicant.science_teacher_email.present? && @applicant.math_teacher_email.present? && @applicant.english_teacher_email.present?
+  end
+  
+  def emails_in_correct_format?
+    @applicant.science_teacher_email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i) &&
+    @applicant.math_teacher_email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i) &&
+    @applicant.english_teacher_email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i)
   end
   
   private

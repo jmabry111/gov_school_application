@@ -1,5 +1,7 @@
 class RecommendationCreator
   
+
+  
   def initialize(applicant)
     @applicant = applicant
   end
