@@ -1,9 +1,11 @@
 class NotificationsMailer < ActionMailer::Base
   default :from => "application@pgsmst.com"
 
-  def new_message(applicant)
+  def new_message(applicant, email, name)
     @applicant = applicant
-    mail(:to => @applicant.school.user.email, :subject => "Piedmont Governor's School Submitted Application")
+    @email = email
+    @name = name
+    mail(:to => @email, :subject => "Piedmont Governor's School Submitted Application")
   end
   
   def invitations_message(teacher_recommendation)

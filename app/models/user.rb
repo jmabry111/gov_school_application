@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
                   :last_sign_in_at, :last_sign_in_at, :last_sign_in_at, :current_sign_in_ip, 
                   :last_sign_in_ip, :name
   
-  has_many :schools
+  has_many :schools, :through => :user_designations
   has_many :applicants, :through => :schools
   
   # Include default devise modules. Others available are:
