@@ -1,7 +1,7 @@
 class NotificationsMailer < ActionMailer::Base
   default :from => "application@pgsmst.com"
 
-  def new_message(applicant, email, name)
+  def new_message(applicant, email)
     @applicant = applicant
     @email = email
     @name = name

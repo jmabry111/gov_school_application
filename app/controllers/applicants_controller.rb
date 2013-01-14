@@ -39,8 +39,7 @@ class ApplicantsController < ApplicationController
     # Send notification to school reps
     @applicant.school.users.each do |user|
       @email = user.email
-      @name = user.name
-      NotificationsMailer.new_message(@applicant, @email, @name).deliver
+      NotificationsMailer.new_message(@applicant, @email).deliver
     end
     # Send notification to applicant(if email is provided)
     if @applicant.applicant_email.present?
