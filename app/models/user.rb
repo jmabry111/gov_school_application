@@ -1,12 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :school_id, :encrypted_password, :reset_password_token, 
-                  :reset_password_sent_at, :reset_password_sent_at, :reset_password_sent_at, 
-                  :reset_password_sent_at, :reset_password_sent_at, :remember_created_at, 
-                  :remember_created_at, :remember_created_at, :remember_created_at, 
-                  :remember_created_at, :current_sign_in_at, :current_sign_in_at, :current_sign_in_at, 
-                  :current_sign_in_at, :current_sign_in_at, :last_sign_in_at, :last_sign_in_at, 
-                  :last_sign_in_at, :last_sign_in_at, :last_sign_in_at, :current_sign_in_ip, 
-                  :last_sign_in_ip, :name
+  attr_accessible :school_id, :name, :email, :password, :password_confirmation, :remember_me
   
   has_many :user_designations
   has_many :schools, :through => :user_designations
@@ -18,9 +11,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
   
   after_create { |user| user.send_reset_password_instructions }
   def password_required?
