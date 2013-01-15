@@ -16,7 +16,8 @@
 		    <%= f.button :submit, "Change my password" %>
 		  </div>
 		<% end %>
-
+		<%= link_to "Request a new reset password token", new_password_path(resource_name) %>
+		<br /><br />
 		<%= render "devise/shared/links" %>
 	</div>
 </div>
