@@ -6,7 +6,6 @@ class School < ActiveRecord::Base
   has_many :users, :through => :user_designations
 
   validates :name, presence: true, length: {maximum: 50}
-  validates :user, presence: true
   
   def self.list
     School.all(:select => :name).collect(&:name)
