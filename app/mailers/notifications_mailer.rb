@@ -4,7 +4,6 @@ class NotificationsMailer < ActionMailer::Base
   def new_message(applicant, email)
     @applicant = applicant
     @email = email
-    @name = name
     mail(:to => @email, :subject => "Piedmont Governor's School Submitted Application")
   end
   
