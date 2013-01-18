@@ -9,7 +9,7 @@ gem 'kaminari'
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'turbolinks'
-
+gem 'newrelic_rpm'
 
 
 group :development, :test do
