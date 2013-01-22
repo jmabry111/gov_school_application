@@ -10,6 +10,8 @@ gem 'jquery-ui-rails'
 gem 'devise'
 gem 'turbolinks'
 gem 'newrelic_rpm'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 
 group :development, :test do
