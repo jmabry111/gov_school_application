@@ -39,15 +39,21 @@ class ApplicantsController < ApplicationController
     # Send notification to school reps
     @applicant.school.users.each do |user|
       @email = user.email
-      NotificationsMailer.delay.new_message(@applicant, @email)
+      #to use delayed_jobs 
+      #NotificationsMailer.delay.new_message(@applicant, @email)
+      NotificationsMailer.new_message(@applicant, @email).deliver
     end
     # Send notification to applicant(if email is provided)
     if @applicant.applicant_email.present?
-      NotificationsMailer.delay.confirmation_message(@applicant)
+      #to use delayed_jobs 
+      #NotificationsMailer.delay.confirmation_message(@applicant)
+      NotificationsMailer.confirmation_message(@applicant).deliver
     end
     # Send notification to applicant's parent(if email is provided)
     if @applicant.email.present?
-      NotificationsMailer.delay.parent_confirmation_message(@applicant)
+      #to use delayed_jobs 
+      #NotificationsMailer.delay.parent_confirmation_message(@applicant)
+      NotificationsMailer.parent_confirmation_message(@applicant).deliver
     end
   end
 end

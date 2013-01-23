@@ -4,7 +4,7 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def index
     if current_user.is_admin?
-      @applicants = Applicant.paginate(page: params[:page])
+      @applicants = Applicant.paginate(:order => 'name', :joins => :school, page: params[:page])
     else
       #@applicants = Applicant.paginate(page: params[:page])
       @applicants = current_user.applicants.paginate(page: params[:page])
