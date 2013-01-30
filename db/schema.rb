@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118211550) do
+ActiveRecord::Schema.define(:version => 20130130193228) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20130118211550) do
     t.string   "math_teacher"
     t.string   "science_teacher"
     t.string   "english_teacher"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "school_phone"
     t.string   "counselor_name"
     t.string   "due_to"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130118211550) do
     t.float    "gpa"
     t.string   "applicant_email"
     t.boolean  "teacher_contacted"
+    t.boolean  "is_archived",            :default => false
   end
 
   create_table "delayed_jobs", :force => true do |t|

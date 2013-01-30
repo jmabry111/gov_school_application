@@ -1,0 +1,16 @@
+<% provide(:title, 'Archived Applicants') %>
+<h1>Previous Applicants</h1>
+
+<%= will_paginate(@applicants) %>
+
+<% @applicant_years.sort.reverse.each do |year, applicants| %>
+<h3><%=h year.strftime("%Y") %> Applicants</h3>
+<ul class="applicants">
+    <% for applicant in applicants %>
+    <li class="evenrow">
+		<%= link_to applicant, coordinator_applicant_path(applicant) %>
+		- <%= applicant.school.name %>		
+	</li>
+    <% end %>
+</ul>
+<% end %>

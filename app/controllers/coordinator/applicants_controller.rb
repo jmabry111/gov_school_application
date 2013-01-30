@@ -4,10 +4,10 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def index
     if current_user.is_admin?
-      @applicants = Applicant.paginate(:order => 'name', :joins => :school, page: params[:page])
+      @applicants = Applicant.paginate(page: params[:page]).where(:is_archived => false)
     else
       #@applicants = Applicant.paginate(page: params[:page])
-      @applicants = current_user.applicants.paginate(page: params[:page])
+      @applicants = current_user.applicants.paginate(page: params[:page]).where(:is_archived => false)
       #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
     end
   end
@@ -76,6 +76,10 @@ class Coordinator::ApplicantsController < ApplicationController
      redirect_to coordinator_applicants_path
     end
     applicant
+  end
+  
+  def find_year
+    applicant = Applicant.where("created_at between ? AND ?", Time.now.beginning_of_year, Time.now.end_of_year)
   end
 
 end
