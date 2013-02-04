@@ -1,7 +1,7 @@
 <% provide(:title, 'All Applicants') %>
 <h1>All Applicants</h1>
 
-<%= will_paginate %>
+<%= paginate @applicants %>
 
 <ul class="applicants">
 	<% if @applicants.present? %>

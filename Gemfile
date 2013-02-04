@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass', '2.0.4'
 #gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
+#gem 'bootstrap-will_paginate', '0.0.6'
 gem 'activeadmin'
 gem 'kaminari'
 gem 'jquery-ui-rails'
@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'newrelic_rpm'
 gem 'delayed_job_active_record'
 gem 'daemons'
+gem 'pg', '0.12.2'
 
 
 group :development, :test do
@@ -47,5 +48,4 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.12.2'
 end

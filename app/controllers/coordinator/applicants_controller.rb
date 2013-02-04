@@ -4,10 +4,13 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def index
     if current_user.is_admin?
-      @applicants = Applicant.paginate(page: params[:page]).where(:is_archived => false)
+      #@applicants = Applicant.paginate(page: params[:page]).where(:is_archived => false)
+      @applicants = Applicant.joins(:school).order(:name).per_page_kaminari(params[:page]).per(50)
+      #@applicants = Applicant.all#(:order => 'name', :joins => :school)
     else
       #@applicants = Applicant.paginate(page: params[:page])
-      @applicants = current_user.applicants.paginate(page: params[:page]).where(:is_archived => false)
+      @applicants = current_user.applicants.per_page_kaminari(params[:page]).per(50)
+      #applicant = current_user.applicants.all(:order => 'first_name', :joins => :school)
       #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
     end
   end
