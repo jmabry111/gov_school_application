@@ -55,6 +55,10 @@ class Coordinator::ApplicantsController < ApplicationController
 
   def destroy
   end
+  
+  def archive
+    archive_current_students
+  end
 
   private
 
@@ -78,8 +82,11 @@ class Coordinator::ApplicantsController < ApplicationController
     applicant
   end
   
-  def find_year
-    applicant = Applicant.where("created_at between ? AND ?", Time.now.beginning_of_year, Time.now.end_of_year)
+  def archive_current_students
+    if @applicant.is_archived = false
+      @applicant.toggle!(:is_archived)
+    end
+    flash[:notice] = "All applicants have been archived"
   end
 
 end

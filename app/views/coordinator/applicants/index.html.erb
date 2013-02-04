@@ -15,8 +15,10 @@
 		</h2>
 	<% end %>
 </ul>
-<div class="row">
-	<div class="span4 offset4" style="margin-top:30px;">
-		<%= button_to "Archive All Current Students", "#", class: "btn" %>
+<% if current_user.is_admin? %>
+	<div class="row">
+		<div class="span4 offset4" style="margin-top:30px;">
+				<%= button_to "Archive All Current Students", "#", class: "btn" %>
+		</div>
 	</div>
-</div>
+<% end %>

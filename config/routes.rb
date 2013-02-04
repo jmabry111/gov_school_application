@@ -19,7 +19,10 @@ GovSchoolApplication::Application.routes.draw do
     resources :teacher_recommendations, :only => [:show] do
       resources :recommendation_reminders, :only => [:create, :new]
     end  
-    resources :archives, :only => [:index, :show]
+    resources :archives, :only => [:index, :show] do
+      member do
+      end
+    end
   end
   
   get "static_pages/info"
