@@ -71,6 +71,10 @@ class Applicant < ActiveRecord::Base
     english_recommendation = find_recommendation_by_subject("English")
     english_recommendation.recommendation == nil
   end
+  
+  def count_recommendations
+    teacher_recommendations.select(&:complete?).count
+  end
  
   
   private 

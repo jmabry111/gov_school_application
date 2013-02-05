@@ -1,8 +1,13 @@
-<li class="evenrow">
+<tr class="evenrow">
 	<% if applicant.gpa.present? %>
-		<%= link_to applicant, coordinator_applicant_path(applicant) %>
+		<td><%= link_to applicant, coordinator_applicant_path(applicant) %></td>
+		<td><%= applicant.school.name %></td>
+		<td style="text-align:center;"><%= image_tag("check.png") %></td>
+		<td style="text-align:center;"><%= applicant.count_recommendations %></td>
 	<% else %>
-		<%= link_to applicant, edit_coordinator_applicant_path(applicant) %> 
-	<% end %>	
-	- <%= applicant.school.name %>		
-</li>
+		<td><%= link_to applicant, edit_coordinator_applicant_path(applicant) %></td>
+		<td><%= applicant.school.name %></td>
+		<td style="text-align:center;"><%= image_tag("x.png") %></td>
+		<td style="text-align:center;"><%= applicant.count_recommendations %></td>
+	<% end %>		
+</tr>

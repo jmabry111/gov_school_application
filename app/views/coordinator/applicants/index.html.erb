@@ -3,7 +3,13 @@
 
 <%= paginate @applicants %>
 
-<ul class="applicants">
+<table class="table table-hover" style="width:75%">
+	<tr>
+		<th>Name</th>
+		<th>School</th>
+		<th style="width:10%">Counselor<br />Portion</th>
+		<th style="width:10%">Completed<br />Recommendations</th>
+	</tr>
 	<% if @applicants.present? %>
 		<% @applicants.each do |a| %>
 			<%= render a %>
@@ -14,7 +20,7 @@
 			You will be notified by email when the first application is submitted.
 		</h2>
 	<% end %>
-</ul>
+</table>
 <% if current_user.is_admin? %>
 	<div class="row">
 		<div class="span4 offset4" style="margin-top:30px;">

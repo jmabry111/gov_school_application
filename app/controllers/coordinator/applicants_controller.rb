@@ -9,7 +9,7 @@ class Coordinator::ApplicantsController < ApplicationController
       #@applicants = Applicant.all#(:order => 'name', :joins => :school)
     else
       #@applicants = Applicant.paginate(page: params[:page])
-      @applicants = current_user.applicants.per_page_kaminari(params[:page]).per(50)
+      @applicants = current_user.applicants.order(:school_id).per_page_kaminari(params[:page]).per(50)
       #applicant = current_user.applicants.all(:order => 'first_name', :joins => :school)
       #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
     end
