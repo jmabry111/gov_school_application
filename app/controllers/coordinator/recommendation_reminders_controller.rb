@@ -1,8 +1,5 @@
 class Coordinator::RecommendationRemindersController < ApplicationController
-  
-  def new
-  end
-  
+
   def create
     @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:teacher_recommendation_id])
     @teacher_recommendation.update_attribute(:last_notified_at, Time.now)

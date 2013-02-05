@@ -43,9 +43,14 @@ class Coordinator::ApplicantsController < ApplicationController
     if has_all_teachers?
       if emails_in_correct_format?
         #call your recommendation generator here
-        RecommendationCreator.new(@applicant).create_recommendations
-        flash[:success] = "Invitations successfully sent"
-        redirect_to coordinator_applicants_path
+        if @applicant.teacher_recommendations.count == 0
+          RecommendationCreator.new(@applicant).create_recommendations
+          flash[:success] = "Invitations successfully sent"
+          redirect_to coordinator_applicants_path
+        else
+          flash[:success] = "Recommendations already exist. To remind teachers, please click the desired applicant's name."
+          redirect_to coordinator_applicants_path
+        end
       else
         flash[:notice] = "Please enter a valid email address for each teacher."
         redirect_to invite_teachers_coordinator_applicant_path(@applicant)

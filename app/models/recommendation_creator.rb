@@ -31,9 +31,9 @@ class RecommendationCreator
   end
   
   def create_recommendation(subject, email, name)
-    teacher_recommendation = @applicant.teacher_recommendations.new(subject: subject, email: email, teacher_name: name, last_notified_at: Time.now)
-    teacher_recommendation.save(validate: false) #I'm assuming you have validations that you want to require for the teacher but enforce them now
-    mail_recommendation(teacher_recommendation)
+      teacher_recommendation = @applicant.teacher_recommendations.new(subject: subject, email: email, teacher_name: name, last_notified_at: Time.now)
+      teacher_recommendation.save(validate: false) #I'm assuming you have validations that you want to require for the teacher but enforce them now
+      mail_recommendation(teacher_recommendation)
   end
   
 end

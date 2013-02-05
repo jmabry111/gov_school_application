@@ -75,6 +75,9 @@ class Applicant < ActiveRecord::Base
   def count_recommendations
     teacher_recommendations.select(&:complete?).count
   end
+  def count_non_complete_recommendations
+    teacher_recommendations.count
+  end
  
   
   private 
