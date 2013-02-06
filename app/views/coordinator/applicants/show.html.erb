@@ -63,10 +63,15 @@
 	<%= link_to "Edit Information", edit_coordinator_applicant_path(@applicant) %>
 	<table class="noborder" style="width:100%;">
 		<tr class="noborder">
-			<td class="noborder" style="width:50%;">
-				Name of Applicant: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %>
+			<td class="noborder" colspan="2">
+				<h5>ID: <%= @applicant.id %></h5>
 			</td>
-			<td class="noborder" style="width:50%;">Gender: <%= @applicant.gender %></td>
+		</tr>
+		<tr class="noborder">
+			<td class="noborder" style="width:50%;">
+				Name: <%= @applicant.first_name %> <%= @applicant.middle_name %> <%= @applicant.last_name %>
+			</td>
+			<td class="noborder" style="width:40%;">Gender: <%= @applicant.gender %></td>
 		</tr>
 		<tr class="noborder">
 			<td class="noborder" style="width:50%;">High School: <%= @applicant.school.name %><br /><br /></td>
