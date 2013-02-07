@@ -24,3 +24,9 @@ or a single test:
 ````bash
 rspec spec/integration/application_spec.rb
 ````
+
+# Update single attribute from console..
+  
+````set t to desired TeacherRecommendation
+````t.email="desired_email"
+````t.update_attribute('email',t.email)

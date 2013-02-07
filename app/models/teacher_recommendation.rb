@@ -18,11 +18,7 @@ class TeacherRecommendation < ActiveRecord::Base
   validates :teamwork, presence:true
   validates :time_management, presence:true
   validates :work_ethic, presence:true
-  
-  #to update an email address in console:
-  #set t to desired TeacherRecommendation
-  #t.email="desired_email"
-  #t.update_attribute('email',t.email)
+
   
   def total_score
       if self.aptitude != nil

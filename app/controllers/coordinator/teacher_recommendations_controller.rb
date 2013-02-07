@@ -14,11 +14,7 @@ class Coordinator::TeacherRecommendationsController < ApplicationController
       render 'new'
     end
   end
-  
-  def update
-    
-  end
-  
+
   def edit
     @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
   end
