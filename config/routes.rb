@@ -16,8 +16,8 @@ GovSchoolApplication::Application.routes.draw do
         put 'create_invitations'
       end
     end
-    resources :teacher_recommendations, :only => [:show] do
-      resources :recommendation_reminders, :only => [:create, :new]
+    resources :teacher_recommendations, :only => [:show, :edit, :update] do
+      resources :recommendation_reminders, :only => [:create, :new, :update]
     end  
     resources :archives, :only => [:index, :show] do
       member do
