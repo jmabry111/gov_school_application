@@ -14,8 +14,8 @@ ActiveAdmin.register_page "Dashboard" do
     
     column do
       panel "Recent Applicants" do
-        table_for Applicant.order('last_name').limit(10) do
-          column("Name")    {|applicant| applicant.first_name + " " + applicant.last_name}
+        table_for Applicant.order('created_at DESC').limit(10) do
+          column("Name")    {|applicant| link_to applicant, admin_applicant_path(applicant.id)}
           column("School")  {|applicant| applicant.school.name}
           column("Science Teacher")  {|applicant| applicant.science_teacher}
           column("Math Teacher")  {|applicant| applicant.math_teacher}
