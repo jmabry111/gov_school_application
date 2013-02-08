@@ -36,6 +36,10 @@ class TeacherRecommendation < ActiveRecord::Base
     aptitude.present? && dedication.present? && desire.present?
   end
   
+  def editable?
+    !complete?
+  end
+  
   
   def to_param
     self.slug

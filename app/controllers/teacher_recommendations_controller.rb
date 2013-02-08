@@ -17,6 +17,11 @@ class TeacherRecommendationsController < ApplicationController
   
   def edit
     @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
+    if @teacher_recommendation.editable?
+      @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
+    else
+      redirect_to sorry_path
+    end
   end
   
   def update

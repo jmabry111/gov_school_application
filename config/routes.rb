@@ -43,6 +43,8 @@ GovSchoolApplication::Application.routes.draw do
   
   match 'contact', to: 'static_pages#who'
   
+  match 'sorry', to: 'static_pages#sorry'
+  
   #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
   #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post
   # The priority is based upon order of creation:
