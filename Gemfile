@@ -13,6 +13,7 @@ gem 'newrelic_rpm'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg', '0.12.2'
+gem 'faker'
 
 
 group :development, :test do
