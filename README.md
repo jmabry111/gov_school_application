@@ -30,3 +30,21 @@ rspec spec/integration/application_spec.rb
 set t to desired TeacherRecommendation
 t.email="desired_email"
 t.update_attribute('email',t.email)
+
+
+# Open and close system for submitting applications
+Production:
+````bash
+heroku config:set REGISTRATION_OPEN='true' --app pgsapplication
+heroku config:set REGISTRATION_OPEN='false' --app pgsapplication
+````
+Staging:
+````bash
+heroku config:set REGISTRATION_OPEN='true' --app application-staging
+heroku config:set REGISTRATION_OPEN='false' --app application-staging
+````
+Development:
+````bash
+export REGISTRATION_OPEN='true'
+export REGISTRATION_OPEN='false'
+````
