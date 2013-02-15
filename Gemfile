@@ -35,6 +35,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'simple_form'
 
 group :test do
+  gem 'rspec'
   gem 'capybara', '1.1.2'
   gem 'rb-fsevent', :require => false
   gem 'growl', '1.0.3'

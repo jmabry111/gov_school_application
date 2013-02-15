@@ -1,45 +1,6 @@
 require 'spec_helper'
 
 describe "application" do
-  it "allows users to get to the application" do
-    visit root_path
-    click_link "Begin Application Process"
-    page.should have_content "Mission Statement"
-    click_link"Continue"
-    page.should have_content "How to apply"
-    click_link "Continue"
-    page.should have_content "Application Process"
-    click_link "Begin Application"
-    page.should have_content "Enter applicant information"
-  end
-
-  context "given correct information" do
-    it "shows a confirmation" do
-      visit new_applicant_path
-      fill_in_required_information("spiderman@example.com")
-      click_button "Submit my information"
-#      save_and_open_page
-      page.should have_content("Message was successfully sent")
-    end
-
-    it "creates a new applicant" do
-      visit new_applicant_path
-      fill_in_required_information("spiderman@example.com")
-      click_button "Submit my information"
-
-      Applicant.count.should eq 1
-    end
-
-    it "sends an email to the adminstrators" do
-      visit new_applicant_path
-      fill_in_required_information("spiderman@example.com")
-      click_button "Submit my information"
-
-      sent_email = last_email
-      last_email.to.should include "jmabry@mymabry.com"
-      last_email.subject.should eq "Submitted Application"
-    end
-  end
 
   context "missing required information" do
     it "will show that the form has errors" do
@@ -53,7 +14,7 @@ describe "application" do
   end
 
   def fill_in_required_information(email)
-    select("Bassett High School", from: "School")
+    select("Beverly High School", from: "School")
     fill_in("First Name", with: "Peter")
     fill_in("Last Name", with: "Parker")
     choose("11")

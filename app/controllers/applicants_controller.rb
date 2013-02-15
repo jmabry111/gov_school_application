@@ -1,6 +1,7 @@
 class ApplicantsController < ApplicationController
   
   skip_before_filter :authenticate_user!, :only => [:new, :create, @success_path]
+  before_filter :reject_if_registration_closed
   
   def new
     @applicant = Applicant.new
@@ -56,4 +57,13 @@ class ApplicantsController < ApplicationController
       NotificationsMailer.parent_confirmation_message(@applicant).deliver
     end
   end
+  
+  protected
+    def reject_if_registration_closed
+      logger.info ENV['REGISTRATION_OPEN']
+      unless ENV['REGISTRATION_OPEN'] == 'true'
+        redirect_to closed_path
+      end
+    end
+  
 end
