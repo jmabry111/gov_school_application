@@ -5,9 +5,8 @@ namespace :db do
     require 'factory_girl_rails'             
     99.times do
       FactoryGirl.create(:full_applicant)
-    end 
-    297.times do
-      FactoryGirl.create(:teacher_recommendation)
-    end   
+      FactoryGirl.create(:full_applicant_with_teacher_recommendations)
+    end  
+    #FactoryGirl.create(:teacher_recommendation)
   end
 end

@@ -2,6 +2,9 @@ FactoryGirl.define do
   sequence (:phone) do |n|
     "222-111-#{n}"
   end  
+  sequence (:applicant) do |n|
+    "#{n}"
+  end
 end
 
 FactoryGirl.define do
@@ -21,6 +24,26 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
+  factory :teacher_recommendation do
+     aptitude {3}
+     date_submitted {Time.now}
+     dedication {3}
+     desire {3}
+     inquiry_skills {3}
+     interaction {3}
+     persistence {3}
+     problem_solving {3}
+     recommendation {3}
+     self_discipline {3}
+     study_skills {3}
+     subject {3}
+     teamwork {3}
+     time_management {3}
+     work_ethic {3}
+     teacher_name {Applicant.all.sample.science_teacher || Applicant.all.sample.math_teacher || Applicant.all.sample.english_teacher}
+     last_notified_at {Time.now} 
+  end
+  
   factory :full_applicant, parent: :applicant do
     school {School.all.sample}
     first_name {Faker::Name.first_name}
@@ -48,30 +71,13 @@ FactoryGirl.define do
     school_phone {"5555551212"}
     gpa {3.8}
     date_due {Time.now + 2.weeks}
-  end
-end
-
-FactoryGirl.define do 
-  factory :teacher_recommendation do
-     aptitude {3}
-     date_submitted {Time.now}
-     dedication {3}
-     desire {3}
-     inquiry_skills {3}
-     interaction {3}
-     persistence {3}
-     problem_solving {3}
-     recommendation {3}
-     self_discipline {3}
-     study_skills {3}
-     subject {3}
-     teamwork {3}
-     time_management {3}
-     work_ethic {3}
-     applicant_id {Applicant.all.sample.id}
-     email {Faker::Internet.email}
-     teacher_name {Applicant.all.sample.science_teacher || Applicant.all.sample.math_teacher || Applicant.all.sample.english_teacher}
-     last_notified_at {Time.now}
     
+    factory :full_applicant_with_teacher_recommendations do
+      ignore do
+        teacher_recommendations_count 3
+      end
+      
+
+    end
   end
 end
