@@ -14,6 +14,7 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'pg', '0.12.2'
 gem 'faker'
+gem 'factory_girl_rails'
 
 
 group :development, :test do
@@ -42,7 +43,6 @@ group :test do
   gem 'growl', '1.0.3'
   gem 'guard-spork'
   gem 'spork'
-  gem 'factory_girl_rails'
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
   gem 'launchy'

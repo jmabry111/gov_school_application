@@ -48,3 +48,25 @@ Development:
 export REGISTRATION_OPEN='true'
 export REGISTRATION_OPEN='false'
 ````
+
+# Drop staging database
+Find Database Name
+````bash
+heroku addons --app application-staging | grep POSTGRES
+````
+Drop Database
+````bash
+heroku pg:reset HEROKU_POSTGRESQL_ORANGE --confirm application-staging
+````
+Migrate
+````bash
+heroku run rake db:migrate --app application-staging
+````
+Seed
+````bash
+heroku run rake db:seed --app application-staging
+````
+Populate w/ fake data
+````bash
+heroku run rake db:populate --app application-staging
+````
