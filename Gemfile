@@ -42,7 +42,7 @@ group :test do
   gem 'growl', '1.0.3'
   gem 'guard-spork'
   gem 'spork'
-  gem 'factory_girl_rails', '1.4.0'
+  gem 'factory_girl_rails'
   gem 'cucumber-rails', '1.2.1', require: false
   gem 'database_cleaner', '0.7.0'
   gem 'launchy'

@@ -24,7 +24,28 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  factory :teacher_recommendation do
+  factory :science_recommendation, class: TeacherRecommendation do
+     aptitude {nil}
+     date_submitted {Time.now}
+     dedication {nil}
+     desire {nil}
+     inquiry_skills {nil}
+     interaction {nil}
+     persistence {nil}
+     problem_solving {nil}
+     recommendation {nil}
+     self_discipline {nil}
+     study_skills {nil}
+     subject {"Science"}
+     teamwork {nil}
+     time_management {nil}
+     work_ethic {nil}
+     teacher_name {applicant.science_teacher}
+     email {applicant.science_teacher_email}
+     last_notified_at {Time.now} 
+  end
+  
+  factory :math_recommendation, class: TeacherRecommendation do
      aptitude {3}
      date_submitted {Time.now}
      dedication {3}
@@ -36,11 +57,33 @@ FactoryGirl.define do
      recommendation {3}
      self_discipline {3}
      study_skills {3}
-     subject {3}
+     subject {"Math"}
      teamwork {3}
      time_management {3}
      work_ethic {3}
-     teacher_name {Applicant.all.sample.science_teacher || Applicant.all.sample.math_teacher || Applicant.all.sample.english_teacher}
+     teacher_name {applicant.math_teacher}
+     email {applicant.math_teacher_email}
+     last_notified_at {Time.now} 
+  end
+  
+  factory :english_recommendation, class: TeacherRecommendation do
+     aptitude {3}
+     date_submitted {Time.now}
+     dedication {3}
+     desire {3}
+     inquiry_skills {3}
+     interaction {3}
+     persistence {3}
+     problem_solving {3}
+     recommendation {3}
+     self_discipline {3}
+     study_skills {3}
+     subject {"English"}
+     teamwork {3}
+     time_management {3}
+     work_ethic {3}
+     teacher_name {applicant.english_teacher}
+     email {applicant.english_teacher_email}
      last_notified_at {Time.now} 
   end
   
@@ -61,8 +104,11 @@ FactoryGirl.define do
     home_phone {"5555551212"}
     work_phone {"5555551212"}
     math_teacher {Faker::Name.name}
+    math_teacher_email {Faker::Internet.email}
     science_teacher {Faker::Name.name}
+    science_teacher_email {Faker::Internet.email}
     english_teacher {Faker::Name.name}
+    english_teacher_email {Faker::Internet.email}
     applicant_confirmation {true}
     parent_confirmation {true}
     teacher_contacted {true}
@@ -74,10 +120,16 @@ FactoryGirl.define do
     
     factory :full_applicant_with_teacher_recommendations do
       ignore do
-        teacher_recommendations_count 3
+        science_recommendations_count 1
+        math_recommendations_count 1
+        english_recommendations_count 1
       end
       
-
+      after(:create) do |applicant|
+        FactoryGirl.create_list(:science_recommendation, 1, applicant: applicant)
+        FactoryGirl.create_list(:math_recommendation, 1, applicant: applicant)
+        FactoryGirl.create_list(:english_recommendation, 1, applicant: applicant)
+      end
     end
   end
 end
