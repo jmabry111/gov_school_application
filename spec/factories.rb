@@ -25,21 +25,21 @@ end
 
 FactoryGirl.define do
   factory :science_recommendation, class: TeacherRecommendation do
-     aptitude {nil}
+     aptitude {4}
      date_submitted {Time.now}
-     dedication {nil}
-     desire {nil}
-     inquiry_skills {nil}
-     interaction {nil}
-     persistence {nil}
-     problem_solving {nil}
-     recommendation {nil}
-     self_discipline {nil}
-     study_skills {nil}
+     dedication {4}
+     desire {4}
+     inquiry_skills {4}
+     interaction {4}
+     persistence {4}
+     problem_solving {4}
+     recommendation {4}
+     self_discipline {4}
+     study_skills {4}
      subject {"Science"}
-     teamwork {nil}
-     time_management {nil}
-     work_ethic {nil}
+     teamwork {4}
+     time_management {4}
+     work_ethic {4}
      teacher_name {applicant.science_teacher}
      email {applicant.science_teacher_email}
      last_notified_at {Time.now} 
