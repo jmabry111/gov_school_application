@@ -252,7 +252,7 @@ DEPENDENCIES
   coffee-rails (= 3.2.2)
   cucumber-rails (= 1.2.1)
   daemons
-  database_cleaner (= 0.7.0)
+  database_cleaner
   delayed_job_active_record
   devise
   email_spec

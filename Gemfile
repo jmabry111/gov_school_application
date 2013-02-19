@@ -15,6 +15,7 @@ gem 'daemons'
 gem 'pg', '0.12.2'
 gem 'faker'
 gem 'factory_girl_rails'
+gem 'database_cleaner'
 
 
 group :development, :test do
@@ -44,7 +45,6 @@ group :test do
   gem 'guard-spork'
   gem 'spork'
   gem 'cucumber-rails', '1.2.1', require: false
-  gem 'database_cleaner', '0.7.0'
   gem 'launchy'
   gem 'email_spec'
 end
