@@ -23,5 +23,17 @@ $(function() {
 });
 
 
+$(function() {
+  $("#ajaxtable th a").live("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+	$("#applicants_search input").keyup(function() {
+		$.get($("#applicants_search").attr("action"), $("#applicants_search").serialize(), null, "script");
+		return false;
+	});
+});
+
+
 
 
