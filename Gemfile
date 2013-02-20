@@ -16,7 +16,8 @@ gem 'pg'
 gem 'faker'
 gem 'factory_girl_rails'
 gem 'database_cleaner'
-
+gem 'jquery-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3'
@@ -34,8 +35,7 @@ group :assets do
   gem "meta_search",    '>= 1.1.0.pre'
 end
 
-gem 'jquery-rails'
-gem 'simple_form'
+
 
 group :test do
   gem 'rspec'
