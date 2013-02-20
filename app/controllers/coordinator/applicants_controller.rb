@@ -1,12 +1,13 @@
 class Coordinator::ApplicantsController < ApplicationController
+  helper_method :sort_column, :sort_direction
 
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create]
 
   def index
     if current_user.is_admin?
-      #@applicants = Applicant.paginate(page: params[:page]).where(:is_archived => false)
-      @applicants = Applicant.joins(:school).order(:name).per_page_kaminari(params[:page]).per(50)
-      #@applicants = Applicant.all#(:order => 'name', :joins => :school)
+      #@applicants = Applicant.joins(:school).order(:name).per_page_kaminari(params[:page]).per(50)
+      #@applicants = Applicant.search(params[:search])
+      @applicants = Applicant.order(sort_column + " " + sort_direction)
     else
       #@applicants = Applicant.paginate(page: params[:page])
       @applicants = current_user.applicants.order(:school_id).per_page_kaminari(params[:page]).per(50)
@@ -95,6 +96,14 @@ class Coordinator::ApplicantsController < ApplicationController
       @applicant.toggle!(:is_archived)
     end
     flash[:notice] = "All applicants have been archived"
+  end
+  
+  def sort_column
+    Applicant.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction ]) ? params[:direction] : "asc"
   end
 
 end

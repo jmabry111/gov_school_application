@@ -79,6 +79,13 @@ class Applicant < ActiveRecord::Base
     teacher_recommendations.count
   end
  
+  def self.search(search)
+    if search
+      find(:all, :joins => :school, :conditions => ['first_name LIKE ? OR last_name LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
   
   private 
   
