@@ -24,7 +24,7 @@ $(function() {
 
 
 $(function() {
-  $("#ajaxtable th a").live("click", function() {
+  $("#applicants_ajax_table th a").bind("click", function() {
     $.getScript(this.href);
     return false;
   });
