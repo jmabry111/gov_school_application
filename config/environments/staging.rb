@@ -23,6 +23,8 @@ GovSchoolApplication::Application.configure do
   config.action_mailer.default_url_options = { 
     :host => 'mockapplication.pgsmst.com' 
   }
+  
+  config.assets.precompile += %w[active_admin.css active_admin.js]
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
