@@ -11,4 +11,5 @@
  *= require_self
  *= require_tree ./all
  *= require jquery.ui.all
+ *= require active_admin.css.scss
  */

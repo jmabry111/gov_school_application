@@ -16,6 +16,7 @@ gem 'pg', '0.12.2'
 gem 'faker'
 gem 'factory_girl_rails'
 gem 'database_cleaner'
+gem 'texticle', '~> 2.0', require: 'texticle/rails'
 
 
 group :development, :test do
