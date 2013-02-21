@@ -81,7 +81,8 @@ class Applicant < ActiveRecord::Base
  
   def self.search(search)
     if search
-      where('first_name LIKE ? OR last_name LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      #self.basic_search(search)
+      where('first_name iLIKE ? OR last_name iLIKE ? OR name iLIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end

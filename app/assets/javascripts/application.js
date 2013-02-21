@@ -24,7 +24,7 @@ $(function() {
 
 
 $(function() {
-  $("#applicants_ajax_table th a").bind("click", function() {
+  $(document).on("click","#applicants_ajax_table th a", function() {
     $.getScript(this.href);
     return false;
   });
