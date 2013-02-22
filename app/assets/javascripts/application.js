@@ -16,23 +16,28 @@
 //= require jquery.ui.all
 //= require_tree .
 
-
+// jquery datepicker - used in coordinator edit applicant form 
 $(function() {
 	$("input#applicant_date_due").datepicker({dateFormat: 'D, M dd yy'});
 	$("input#teacher_recommendation_date_submitted").datepicker({dateFormat: 'D, M dd yy'});
 });
 
-
+// Function to make sort and search ajax on applicant index page
 $(function() {
-  $(document).on("click","#applicants_ajax_table th a", function() {
-    $.getScript(this.href);
-    return false;
-  });
+	$(document).on("click","#applicants_ajax_table th a", function() {
+	  $.getScript(this.href);
+	  return false;
+	});
 	$("#applicants_search input").keyup(function() {
 		$.get($("#applicants_search").attr("action"), $("#applicants_search").serialize(), null, "script");
 		return false;
 	});
 });
+
+// Hides search button on applicant index page
+$(function() {
+	$("#search_button").hide();
+})
 
 
 
