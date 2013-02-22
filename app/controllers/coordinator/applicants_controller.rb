@@ -98,6 +98,7 @@ class Coordinator::ApplicantsController < ApplicationController
   
   def sort_column
     Applicant.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
+    Applicant.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
   
   def sort_direction
