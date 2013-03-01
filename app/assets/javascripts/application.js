@@ -28,7 +28,7 @@ $(function() {
 	  $.getScript(this.href);
 	  return false;
 	});
-	$("#applicants_search input").keyup(function() {
+	$(document).keyup("#applicants_search input", function() {
 		$.get($("#applicants_search").attr("action"), $("#applicants_search").serialize(), null, "script");
 		return false;
 	});
