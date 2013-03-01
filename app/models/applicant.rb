@@ -88,6 +88,10 @@ class Applicant < ActiveRecord::Base
     end
   end
   
+  def self.active
+    where(is_archived: !true)
+  end
+  
   private 
   
   def find_recommendation_by_subject(subject)
