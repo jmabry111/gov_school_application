@@ -5,7 +5,7 @@ GovSchoolApplication::Application.routes.draw do
   devise_for :users#, ActiveAdmin::Devise.config
   
 
-  resources :applicants, only: [:new, :create]
+  resources :applicants, only: [:new, :create, :show]
   resources :schools
   resources :teacher_recommendations, :only => [:new, :create, :edit, :update]
 

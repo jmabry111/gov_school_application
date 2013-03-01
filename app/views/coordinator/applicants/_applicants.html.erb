@@ -14,7 +14,7 @@
 	<% if @applicants.present? %>
 		<% @applicants.each do |applicant| %>
 			<tr class="evenrow">
-				<% if applicant.gpa.present? %>
+				<% if applicant.counselor_portion_complete? %>
 					<td><%= applicant.id %></td>
 					<td><%= link_to applicant, coordinator_applicant_path(applicant) %></td>
 					<td><%= applicant.school.name %></td>

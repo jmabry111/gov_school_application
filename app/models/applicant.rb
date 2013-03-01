@@ -51,7 +51,7 @@ class Applicant < ActiveRecord::Base
   def science_recommendation
     science_recommendation = find_recommendation_by_subject("Science")
   end
-  def science_recommendation_complete?
+  def science_recommendation_not_complete?
     science_recommendation = find_recommendation_by_subject("Science")
     science_recommendation.recommendation == nil
   end
@@ -59,7 +59,7 @@ class Applicant < ActiveRecord::Base
   def math_recommendation
     math_recommendation = find_recommendation_by_subject("Math")
   end
-  def math_recommendation_complete?
+  def math_recommendation_not_complete?
     math_recommendation = find_recommendation_by_subject("Math")
     math_recommendation.recommendation == nil
   end
@@ -67,7 +67,7 @@ class Applicant < ActiveRecord::Base
   def english_recommendation
     english_recommendation = find_recommendation_by_subject("English")
   end
-  def english_recommendation_complete?
+  def english_recommendation_not_complete?
     english_recommendation = find_recommendation_by_subject("English")
     english_recommendation.recommendation == nil
   end
@@ -77,6 +77,14 @@ class Applicant < ActiveRecord::Base
   end
   def count_non_complete_recommendations
     teacher_recommendations.count
+  end
+  
+  def counselor_portion_complete?
+    gpa.present? && date_due.present?
+  end
+  
+  def applicant_portion_complete?
+    first_name.present? && last_name.present? && home_phone.present? && parent_confirmation.present?
   end
  
   def self.search(search)

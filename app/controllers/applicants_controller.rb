@@ -1,6 +1,6 @@
 class ApplicantsController < ApplicationController
   
-  skip_before_filter :authenticate_user!, :only => [:new, :create, @success_path]
+  skip_before_filter :authenticate_user!, :only => [:new, :show, :create, @success_path]
   before_filter :reject_if_registration_closed
   
   def new

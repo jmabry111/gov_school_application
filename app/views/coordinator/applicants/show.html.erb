@@ -7,7 +7,7 @@
 			<span class="span-one-third">
 				<%= link_to "Science Recommendation", 
 						coordinator_teacher_recommendation_path(@applicant.science_recommendation) %>
-				<% if @applicant.science_recommendation_complete? %>
+				<% if @applicant.science_recommendation_not_complete? %>
 					<%= image_tag("x.png") %><br />
 					<div class="not_complete">
 						Last notified <%= time_ago_in_words(@applicant.science_recommendation.last_notified_at) %> ago.
@@ -24,7 +24,7 @@
 			<span class="span-one-third offset-one-third">
 				<%= link_to "Math Recommendation", 
 						coordinator_teacher_recommendation_path(@applicant.math_recommendation) %>
-				<% if @applicant.math_recommendation_complete? %>
+				<% if @applicant.math_recommendation_not_complete? %>
 					<%= image_tag("x.png") %><br />
 					<div class="not_complete">
 						Last notified <%= time_ago_in_words(@applicant.math_recommendation.last_notified_at) %> ago.
@@ -41,7 +41,7 @@
 			<span class="span-one-third offset-two-thirds">
 				<%= link_to "English Recommendation", 
 						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
-				<% if @applicant.english_recommendation_complete? %>
+				<% if @applicant.english_recommendation_not_complete? %>
 					<%= image_tag("x.png") %><br />
 					<div class="not_complete">
 						Last notified <%= time_ago_in_words(@applicant.english_recommendation.last_notified_at) %> ago.
