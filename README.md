@@ -70,3 +70,5 @@ Populate w/ fake data
 ````bash
 heroku run rake db:populate --app application-staging
 ````
+
+update ruby on heroku
