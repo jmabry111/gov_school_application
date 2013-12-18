@@ -1,7 +1,7 @@
 <%= simple_form_for @applicant do |f| -%>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="row">
-		<div class="span8"><%= f.association :school %></div>
+		<div class="span6 offset1 text-center"><%= f.association :school, :label => "Select your school" %></div>
 	</div>
 	<div class="row">
 		<div class="span3"><%= f.input :first_name, :label => "First Name"  %></div>
@@ -16,29 +16,31 @@
 			<%= f.input :grade, :collection => ["11", "12"], :as => :radio_buttons, :item_wrapper_class => :inline %>
 		</div>
 	</div>
+	<br /><br /><br />
 	<div class="row">
-		<div class="span4"><%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %></div>
-		<div class="span4"><%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %></div>
+		<div class="span3"><%= f.input :parent_first_name, :label => "Parent/Guardian First Name" %></div>
+		<div class="span3"><%= f.input :parent_last_name, :label => "Parent/Guardian Last Name" %></div>
 	</div>
 	<div class="row">
-		<div class="span8"><%= f.input :address, :label => "Parent Street Address" %></div>
+		<div class="span6"><%= f.input :address, :label => "Parent Street Address" %></div>
 	</div>
 	<div class="row">
-		<div class="span5"><%= f.input :city %></div>
+		<div class="span3"><%= f.input :city %></div>
 		<div class="span1"><%= f.input :state, :input_html => {:maxlength => 2, :value => "VA"} %></div>
 		<div class="span2"><%= f.input :zip, :label => "5 Digit Zip Code", :input_html => {:maxlength => 5} %></div>
 	</div>
+	<br /><br /><br />
 	<div class="row">
 		<div class="span4">
 			<%= f.input :home_phone, :label => "Parent Home Phone", :placeholder => "555-555-1212" %>
 			<!--[if IE 9]>
-			<p style="color:gray;">Ex: 555-555-1212</p>
+			<p class="gray">Ex: 555-555-1212</p>
 			<![endif]-->
 		</div>
 		<div class="span4">
 			<%= f.input :work_phone, :label => "Parent Work Phone", :placeholder => "555-555-1212" %>
 			<!--[if IE 9]>
-			<p style="color:gray;">Ex: 555-555-1212</p>
+			<p class="gray">Ex: 555-555-1212</p>
 			<![endif]-->
 		</div>
 	</div>
@@ -93,7 +95,7 @@
 	</div>	
 	<div class="row">
 		<div class="span8 text-center">
-			<h4 style="color:red;">This may take a moment. Please only press submit once.</h4>
+			<h4 class="red">This may take a moment.<br />Please only press submit once.</h4>
 		</div>
 	</div>	
 <% end %>
