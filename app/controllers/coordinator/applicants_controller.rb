@@ -8,9 +8,7 @@ class Coordinator::ApplicantsController < ApplicationController
       @applicants = Applicant.joins(:school).search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
     else
       #@applicants = Applicant.paginate(page: params[:page])
-      @applicants = current_user.applicants.search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50)
-      #applicant = current_user.applicants.all(:order => 'first_name', :joins => :school)
-      #@applicants = Applicant.where(:school_id => current_user.schools.pluck(:id)).paginate(page: params[:page])
+      @applicants = current_user.applicants.search(params[:search]).order(sort_column + " " + sort_direction).per_page_kaminari(params[:page]).per(50).active
     end
   end
 
@@ -81,7 +79,7 @@ class Coordinator::ApplicantsController < ApplicationController
   
   private
   def find_applicant_or_redirect
-    applicant = Applicant.find_by_id(params[:id])
+    applicant = Applicant.where(params[:id])
     unless applicant
      flash[:notice] = "This applicant does not exist"
      redirect_to coordinator_applicants_path

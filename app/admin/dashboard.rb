@@ -11,10 +11,24 @@ ActiveAdmin.register_page "Dashboard" do
 #    end
   
  columns do
-    
     column do
       panel "Recent Applicants" do
-        table_for Applicant.order('created_at DESC').limit(10) do
+        table_for Applicant.where(:is_archived => false).order('created_at DESC').limit(10) do
+          column("Name")    {|applicant| link_to applicant, admin_applicant_path(applicant.id)}
+          column("School")  {|applicant| applicant.school.name}
+          column("Science Teacher")  {|applicant| applicant.science_teacher}
+          column("Math Teacher")  {|applicant| applicant.math_teacher}
+          column("English Teacher")  {|applicant| applicant.english_teacher}
+          column("# of Completed Recommendations") {|a| a.teacher_recommendations.select(&:complete?).count}
+        end
+      end
+    end
+  end
+  
+  columns do
+    column do
+      panel "Recently Archived Applicants" do
+        table_for Applicant.where(:is_archived => true).order('created_at DESC').limit(10) do
           column("Name")    {|applicant| link_to applicant, admin_applicant_path(applicant.id)}
           column("School")  {|applicant| applicant.school.name}
           column("Science Teacher")  {|applicant| applicant.science_teacher}
@@ -29,11 +43,12 @@ ActiveAdmin.register_page "Dashboard" do
 
   columns do
     column do
+      panel "Schools" do
         table_for School.order('name') do
           column("School Name") {|school| school.name}
         end
       end
-#    end
+    end
     column do
       panel "Current Users" do
         table_for User.order('id') do
