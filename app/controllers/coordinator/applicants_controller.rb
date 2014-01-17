@@ -79,7 +79,7 @@ class Coordinator::ApplicantsController < ApplicationController
   
   private
   def find_applicant_or_redirect
-    applicant = Applicant.where(params[:id])
+    applicant = Applicant.find(params[:id])
     unless applicant
      flash[:notice] = "This applicant does not exist"
      redirect_to coordinator_applicants_path
