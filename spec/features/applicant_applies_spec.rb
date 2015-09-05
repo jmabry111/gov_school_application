@@ -12,8 +12,7 @@ require 'spec_helper'
       page.should have_content "Application Process"
       click_link "Begin Application"
       page.should have_content "Enter applicant information"
-      
-      select "Beverly High School", :from => "School"
+      select "Beverly High School", :from => "applicant_school_id"
       fill_in "First Name", with: "Jethro"
       fill_in "Last Name", with: "Clampett"
       choose "Male"
@@ -29,9 +28,9 @@ require 'spec_helper'
       fill_in "Math:", with: "Ms. Granny"
       fill_in "Science", with: "Mr. Drysdale"
       fill_in "English", with: "Miss Jane"
-      check "Teachers Contacted"
-      check "Applicant confirmation"
-      check "Parent confirmation"
+      check "applicant_teacher_contacted"
+      check "applicant_applicant_confirmation"
+      check "applicant_parent_confirmation"
       click_button "Submit my information"
       page.should have_content ("Information was successfully submitted")
     end

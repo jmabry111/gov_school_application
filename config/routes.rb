@@ -13,7 +13,7 @@ GovSchoolApplication::Application.routes.draw do
     resources :applicants, :only => [:show, :edit, :update, :index] do
       member do
         get 'invite_teachers'
-        put 'create_invitations'
+        patch 'create_invitations'
       end
     end
     resources :teacher_recommendations, :only => [:show, :edit, :update] do

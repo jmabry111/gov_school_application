@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!(email: "jmabry@mymabry.com", name: "Jason Mabry")
+#User.create!(email: "jmabry@mymabry.com", name: "Jason Mabry")
 
 School.create!(name: "Bassett High School")
 School.create!(name: "Magna Vista High School")
