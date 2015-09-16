@@ -2,6 +2,9 @@ class SchoolsController < ApplicationController
   
   before_filter :authenticate_user!
   
+  def school_params
+    params.require(:school).permit(:name, :user_id)
+  end
   def index
     @schools = School.paginate(page: params[:page])
   end

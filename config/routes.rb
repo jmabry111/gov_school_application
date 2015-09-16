@@ -13,7 +13,7 @@ GovSchoolApplication::Application.routes.draw do
     resources :applicants, :only => [:show, :edit, :update, :index] do
       member do
         get 'invite_teachers'
-        patch 'create_invitations'
+        put 'create_invitations'
       end
     end
     resources :teacher_recommendations, :only => [:show, :edit, :update] do
@@ -26,23 +26,23 @@ GovSchoolApplication::Application.routes.draw do
   
   root to: 'static_pages#info'
   
-  match '/mission', to: 'static_pages#mission'
+  get '/mission' => 'static_pages#mission'
   
-  match '/how', to: 'static_pages#how'
+  get '/how' => 'static_pages#how'
   
-  match 'instructions', to: 'static_pages#instructions'
+  get 'instructions' => 'static_pages#instructions'
   
-  match 'thank_you', to: 'static_pages#thank_you'
+  get 'thank_you' => 'static_pages#thank_you'
   
-  match 'thanks', to: 'static_pages#thank_you_teacher'
+  get 'thanks' => 'static_pages#thank_you_teacher'
   
-  match 'success', to: 'static_pages#success'
+  get 'success' => 'static_pages#success'
   
-  match 'contact', to: 'static_pages#who'
+  get 'contact' => 'static_pages#who'
   
-  match 'sorry', to: 'static_pages#sorry'
+  get 'sorry' => 'static_pages#sorry'
   
-  match 'closed', to: 'static_pages#closed'
+  get 'closed' => 'static_pages#closed'
   
   #match '/applicant', to: 'applicants#new', :as => 'applicant', :via => :get
   #match '/applicant', to: 'applicants#create', :as => 'applicant', :via => :post

@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :user do
+    name "John Black"
+    email "jblack@basicblack.com"
+  end
+end
+FactoryGirl.define do
   sequence (:phone) do |n|
     "222-111-#{n}"
   end  
@@ -119,7 +125,7 @@ FactoryGirl.define do
     date_due {Time.now + 2.weeks}
     
     factory :full_applicant_with_teacher_recommendations do
-      ignore do
+      transient do
         science_recommendations_count 1
         math_recommendations_count 1
         english_recommendations_count 1

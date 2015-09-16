@@ -13,7 +13,6 @@
 //= require bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
 //= require_tree .
 
 // jquery datepicker - used in coordinator edit applicant form 

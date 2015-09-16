@@ -3,6 +3,9 @@ class ApplicantsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => [:new, :show, :create, @success_path]
   before_filter :reject_if_registration_closed
   
+  def applicant_params
+    params.require(:applicant).permit(:address, :email, :english_teacher, :first_name, :gender, :grade, :home_phone, :last_name, :math_teacher, :middle_name, :parent_first_name, :parent_last_name, :school_id, :science_teacher, :work_phone, :school_phone, :counselor_name, :due_to, :date_due, :english_teacher_email, :science_teacher_email, :math_teacher_email, :applicant_confirmation, :parent_confirmation, :applicant_email, :city, :state, :zip, :gpa, :teacher_contacted, :is_archived, :school)
+  end
   def new
     @applicant = Applicant.new
     @school = [School.list].flatten
