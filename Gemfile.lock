@@ -177,11 +177,6 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    meta_search (0.5.4)
-      actionpack (>= 3.0.0.beta4)
-      activerecord (>= 3.0.0.beta4)
-      activesupport (>= 3.0.0.beta4)
-      arel (>= 0.4.0)
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
@@ -305,6 +300,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  activemodel
   bootstrap-sass
   capybara
   coffee-rails
@@ -322,7 +318,6 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   launchy
-  meta_search
   newrelic_rpm
   pg
   pry
@@ -337,3 +332,6 @@ DEPENDENCIES
   textacular
   turbolinks
   uglifier
+
+BUNDLED WITH
+   1.10.6

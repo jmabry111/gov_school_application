@@ -15,9 +15,7 @@ gem 'faker'#, '~>1.1.2'
 gem 'factory_girl_rails'#, '~>4.2.1'
 gem 'database_cleaner'#, '~>0.9.1'
 gem 'textacular'#, '~> 2.1.1', require: 'texticle/rails'
-#gem 'client_side_validations'
-#gem 'protected_attributes'
-#gem 'activemodel'
+gem 'activemodel'
 
 
 group :development, :test do
@@ -33,7 +31,7 @@ end
   gem 'sass-rails'#,   '3.2.5'
   gem 'coffee-rails'#, '3.2.2'
   gem 'uglifier'#, '1.2.3'
-  gem "meta_search"#,    '>= 1.1.0.pre'
+#  gem "meta_search"#,    '>= 1.1.0.pre'
 #end
 
 gem 'jquery-rails'#, '~>2.2.1'

@@ -10,7 +10,7 @@ class TeacherRecommendationsController < ApplicationController
   end
 
   def create
-    @teacher_recommendation = TeacherRecommendation.new(params[:teacher_recommendation])
+    @teacher_recommendation = TeacherRecommendation.new(teacher_recommendation_params)
     if @teacher_recommendation.save
       redirect_to thanks_path
     else
@@ -29,7 +29,7 @@ class TeacherRecommendationsController < ApplicationController
   
   def update
     @teacher_recommendation = TeacherRecommendation.find_by_slug!(params[:id])
-    if @teacher_recommendation.update_attributes(params[:teacher_recommendation])
+    if @teacher_recommendation.update_attributes(teacher_recommendation_params)
       flash[:success] = "Recommendation Submitted"
       redirect_to thanks_path
     else
