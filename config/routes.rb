@@ -17,7 +17,7 @@ GovSchoolApplication::Application.routes.draw do
       end
     end
     resources :teacher_recommendations, :only => [:show, :edit, :update] do
-      resources :recommendation_reminders, :only => [:create, :new, :update]
+      resource :recommendation_reminder, :only => [:create, :new, :update]
     end  
     resources :archives, :only => [:index, :create]
   end
