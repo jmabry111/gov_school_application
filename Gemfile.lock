@@ -314,7 +314,7 @@ DEPENDENCIES
   growl
   guard-rspec
   guard-spork
-  i18n (~> 0.7.0)
+  i18n
   jquery-rails
   jquery-ui-rails
   kaminari
