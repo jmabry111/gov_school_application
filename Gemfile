@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.2"
 
 gem 'rails', '4.2.4'
 gem 'bootstrap-sass'#, '~>2.0.4.0'
@@ -16,7 +17,6 @@ gem 'factory_girl_rails'#, '~>4.2.1'
 gem 'database_cleaner'#, '~>0.9.1'
 gem 'textacular'#, '~> 2.1.1', require: 'texticle/rails'
 gem 'activemodel'
-gem 'i18n', '~>0.7.0'
 
 
 group :development, :test do
