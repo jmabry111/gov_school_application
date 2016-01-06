@@ -6,7 +6,7 @@
 				<%= link_to "Return to Applicant Page", 
 					coordinator_applicant_path(@teacher_recommendation.applicant.id) %><br />
 				<%= button_to "Send Reminder", 
-					coordinator_teacher_recommendation_recommendation_reminders_path(@teacher_recommendation.slug),
+					edit_coordinator_teacher_recommendation_path(@teacher_recommendation.slug),
 				 	:method => :post, class: "btn btn-medium" %>
 				</h1>
 				<p>
