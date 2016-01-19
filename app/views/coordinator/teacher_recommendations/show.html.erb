@@ -6,7 +6,7 @@
 				<%= link_to "Return to Applicant Page", 
 					coordinator_applicant_path(@teacher_recommendation.applicant.id) %><br />
 				<%= button_to "Send Reminder", 
-					edit_coordinator_teacher_recommendation_path(@teacher_recommendation.slug),
+					edit_coordinator_teacher_recommendation_path(@teacher_recommendation),
 				 	:method => :post, class: "btn btn-medium" %>
 				</h1>
 				<p>
@@ -122,7 +122,7 @@
       -->
 			<tr>
 				<td>
-					11. Shows strong dedication: 
+					10. Shows strong dedication: 
 				</td>
 				<td class="score">
 					<%= @teacher_recommendation.dedication %>
@@ -130,7 +130,7 @@
 			</tr>
 			<tr>
 				<td>
-					12. Has exceptional work ethic:
+					11. Has exceptional work ethic:
 				</td>
 				<td class="score">
 					<%= @teacher_recommendation.work_ethic %>
