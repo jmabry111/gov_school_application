@@ -21,9 +21,9 @@
 					Please rate the candidate in the following categories by checking the appropriate 
 					number based on the following rating scale.
 				</h3>
-				<p>
+        <p><strong>
         1 = Poor &#124; 2 = Needs improvement &#124; 3 = Average &#124; 4 = Above average &#124; 5 = Excellent
-				</p>
+      </strong></p>
 				<%= render 'shared/error_messages', object: f.object %>
 				<%= 
 					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
