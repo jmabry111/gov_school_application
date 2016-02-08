@@ -32,6 +32,7 @@ class Applicant < ActiveRecord::Base
   VALID_GPA_REGEX = /[0]|[0-3]\.(\d?\d?)|[4].[0]\z/
   validates :gpa, presence:true, format: {with:VALID_GPA_REGEX}, on: :update
   validates :teacher_contacted, presence:true, on: :create
+  validates :last_name, uniqueness: { scope: [:first_name, :grade, :address, :email], :message => ", First Name, Grade Level, Address, and Email are all duplicate entries. This application has already been submitted. Please check your email for a confirmation and link to your status page." }
   
   
 
