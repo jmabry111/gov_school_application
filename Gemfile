@@ -18,7 +18,7 @@ gem 'database_cleaner'#, '~>0.9.1'
 gem 'textacular'#, '~> 2.1.1', require: 'texticle/rails'
 gem 'activemodel'
 gem 'i18n'
-
+gem 'rollbar'
 
 group :development, :test do
   gem 'sqlite3' #, '1.3.5'
