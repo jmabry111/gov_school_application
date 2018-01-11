@@ -39,7 +39,7 @@
 		<% end %>
 		<%if @applicant.english_recommendation.present? %>
 			<span class="span-one-third offset-two-thirds">
-				<%= link_to "English Recommendation", 
+				<%= link_to "Additional Recommendation", 
 						coordinator_teacher_recommendation_path(@applicant.english_recommendation) %>
 				<% if @applicant.english_recommendation_not_complete? %>
 					<%= image_tag("x.png") %><br />
@@ -118,15 +118,15 @@
 			<th colspan="2">Names of Teachers Completing Recommendations:</th>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder">Math:</td>
+			<td class="noborder">Math Teacher:</td>
 			<td class="noborder"><%= @applicant.math_teacher %></td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder">Science:</td>
+			<td class="noborder">Science Teacher:</td>
 			<td class="noborder"><%= @applicant.science_teacher %></td>
 		</tr>
 		<tr class="noborder">
-			<td class="noborder">English:</td>
+			<td class="noborder">Additional Teacher:</td>
 			<td class="noborder"><%= @applicant.english_teacher %></td>
 		</tr>
 	</table>

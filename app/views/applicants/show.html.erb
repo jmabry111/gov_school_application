@@ -12,8 +12,8 @@
 					<th>Applicant Section</th>
 					<th>Counselor Section</th>
 					<th colspan="2">Science Recommendation</th>
-					<th colspan="2">English Recommendation</th>
 					<th colspan="2">Math Recommendation</th>
+					<th colspan="2">Additional Recommendation</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,9 +38,9 @@
 							<td>Sent<br /><%= image_tag("x.png") %></td>
 							<td>Completed<br /><%= image_tag("x.png") %></td>
 						<% end %>		
-						<%if @applicant.english_recommendation.present? %>
+						<%if @applicant.math_recommendation.present? %>
 							<td>Sent<br /><%= image_tag("check.png") %></td>
-							<% if !@applicant.english_recommendation_not_complete? %>
+							<% if !@applicant.math_recommendation_not_complete? %>
 								<td>Completed<br /><%= image_tag("check.png") %></td>
 							<% else %>
 								<td>Completed<br /><%= image_tag("x.png") %></td>
@@ -49,9 +49,9 @@
 							<td>Sent<br /><%= image_tag("x.png") %></td>
 							<td>Completed<br /><%= image_tag("x.png") %></td>
 						<% end %>
-						<%if @applicant.math_recommendation.present? %>
+						<%if @applicant.english_recommendation.present? %>
 							<td>Sent<br /><%= image_tag("check.png") %></td>
-							<% if !@applicant.math_recommendation_not_complete? %>
+							<% if !@applicant.english_recommendation_not_complete? %>
 								<td>Completed<br /><%= image_tag("check.png") %></td>
 							<% else %>
 								<td>Completed<br /><%= image_tag("x.png") %></td>
