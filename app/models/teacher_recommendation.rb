@@ -40,7 +40,11 @@ class TeacherRecommendation < ActiveRecord::Base
   def to_param
     self.slug
   end
-  
+
+  def is_english?
+    self.subject == "English"
+  end
+
   private
   def create_slug
     if self.slug == nil
