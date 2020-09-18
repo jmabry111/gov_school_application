@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/vce
     docker:
-      - image: circleci/ruby:2.4.2-browsers
+      - image: circleci/ruby:2.6.5-browsers
         environment:
           BUNDLER_VERSION: 2.1.4
           PGHOST: localhost
