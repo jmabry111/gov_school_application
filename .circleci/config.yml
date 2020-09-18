@@ -1,15 +1,54 @@
-version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
+---
+version: 2 
 jobs:
   build:
+    working_directory: ~/vce
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: circleci/ruby:2.4.2-browsers
+        environment:
+          BUNDLER_VERSION: 2.1.4
+          PGHOST: localhost
+          PGUSER: vce
+          RAILS_ENV: test
+      - image: circleci/postgres:12.1
+        environment:
+          POSTGRES_USER: vce
+          POSTGRES_DB: vce_test
+          POSTGRES_HOST_AUTH_METHOD: trust
     steps:
       - checkout
+
+      # Restore Cached Dependencies
+      - type: cache-restore
+        name: Restore bundle cache
+        key: vce-{{ checksum "Gemfile.lock" }}
+
+      # Configure Bundler
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: Configure Bundler
+          command: |
+            gem install bundler
+
+      # Bundle install dependencies
+      - run: bundle install --binstubs
+
+      # Cache dependencies
+      - type: cache-save
+        name: Store bundle cache
+        key: vce-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      # Wait for DB
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # Set up the environment
+      - run: cp .sample.env .env
+
+      # Set up the database
+      - run: bundle exec rake db:create --trace
+      - run: bundle exec rake db:migrate
+      - run: bundle exec rake db:seed
+
+      # Run the tests
+      - run: bundle exec rspec spec/
