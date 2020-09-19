@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Applicant do
   describe "#strip_extra_characters" do
     it "removes extra characters from the phone numbers" do
-      applicant = FactoryGirl.build(:applicant,
+      applicant = FactoryBot.build(:applicant,
                                     home_phone: "222-222-2222",
                                     work_phone: "333-333-3333",
                                     school_phone: "444-444-4444")
@@ -15,7 +15,7 @@ describe Applicant do
     end
 
     it "does not throw errors if a field is blank" do
-      applicant = FactoryGirl.build(:applicant,
+      applicant = FactoryBot.build(:applicant,
                                     school_phone: nil)
 
       expect{applicant.strip_extra_characters}.to_not raise_error

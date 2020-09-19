@@ -1,10 +1,10 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    name "John Black"
-    email "jblack@basicblack.com"
+    name {"John Black"}
+    email {"jblack@basicblack.com"}
   end
 end
-FactoryGirl.define do
+FactoryBot.define do
   sequence (:phone) do |n|
     "222-111-#{n}"
   end  
@@ -13,23 +13,23 @@ FactoryGirl.define do
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :applicant do
-    first_name "Peter"
-    last_name "Parker"
-    grade 12
-    parent_first_name "Aunt"
-    parent_last_name "Mae"
-    home_phone "222-333-3333"
-    work_phone "222-111-1111"
-    email "spiderman@example.com"
-    math_teacher "Teacher 1"
-    science_teacher "Teacher 2"
-    english_teacher "Teacher 3"
+    first_name {"Peter"}
+    last_name {"Parker"}
+    grade { 12 }
+    parent_first_name {"Aunt"}
+    parent_last_name {"Mae"}
+    home_phone {"222-333-3333"}
+    work_phone {"222-111-1111"}
+    email {"spiderman@example.com"}
+    math_teacher {"Teacher 1"}
+    science_teacher {"Teacher 2"}
+    english_teacher {"Teacher 3"}
   end
 end
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :science_recommendation, class: TeacherRecommendation do
      aptitude {4}
      date_submitted {Time.now}
@@ -98,7 +98,7 @@ FactoryGirl.define do
     first_name {Faker::Name.first_name}
     middle_name {Faker::Name.first_name}
     last_name {Faker::Name.last_name}
-    grade {11}
+    grade { 11 }
     email {Faker::Internet.email}
     gender  {"Male"}
     parent_first_name {Faker::Name.first_name}
@@ -119,22 +119,22 @@ FactoryGirl.define do
     parent_confirmation {true}
     teacher_contacted {true}
     applicant_email {Faker::Internet.email}
-    is_archived false
+    is_archived {false}
     school_phone {"5555551212"}
     gpa {3.8}
     date_due {Time.now + 2.weeks}
     
     factory :full_applicant_with_teacher_recommendations do
       transient do
-        science_recommendations_count 1
-        math_recommendations_count 1
-        english_recommendations_count 1
+        science_recommendations_count {1}
+        math_recommendations_count {1}
+        english_recommendations_count {1}
       end
       
       after(:create) do |applicant|
-        FactoryGirl.create_list(:science_recommendation, 1, applicant: applicant)
-        FactoryGirl.create_list(:math_recommendation, 1, applicant: applicant)
-        FactoryGirl.create_list(:english_recommendation, 1, applicant: applicant)
+        FactoryBot.create_list(:science_recommendation, 1, applicant: applicant)
+        FactoryBot.create_list(:math_recommendation, 1, applicant: applicant)
+        FactoryBot.create_list(:english_recommendation, 1, applicant: applicant)
       end
     end
   end

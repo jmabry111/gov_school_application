@@ -4,7 +4,7 @@ namespace :db do
     require 'factory_girl_rails'      
 
     99.times do
-      applicant = FactoryGirl.create(:full_applicant_with_teacher_recommendations)
+      applicant = FactoryBot.create(:full_applicant_with_teacher_recommendations)
     end  
   end
 end

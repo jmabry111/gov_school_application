@@ -6,7 +6,7 @@ describe "Applicants" do
   
  
   describe "New Applicant Form" do
-    applicant = FactoryGirl.build(:applicant)
+    applicant = FactoryBot.build(:applicant)
     it "should have the content 'Enter applicant information'" do
       visit '/applicants/new'
       page.should have_content('Enter applicant information')
