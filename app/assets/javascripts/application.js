@@ -51,8 +51,8 @@ document.addEventListener('turbolinks:load', () => {
       succeed = false;
     }
 
-    if (succeed) {
-      alert('Link has been copied.');
+    if(succeed) {
+      document.querySelector('#copyMsg').style.visibility = 'visible';
     }
   });
 });
