@@ -10,20 +10,18 @@ class TeacherRecommendation < ActiveRecord::Base
   validates :interaction, presence:true
   validates :persistence, presence:true
   validates :problem_solving, presence:true
-  validates :recommendation, presence:true
   validates :self_discipline, presence:true
   validates :study_skills, presence:true
-#  validates :teamwork, presence:true
   validates :time_management, presence:true
   validates :work_ethic, presence:true
 
   
   def total_score
-      if self.aptitude != nil
-      total_score = aptitude + dedication + desire + inquiry_skills + interaction + persistence + problem_solving + recommendation + self_discipline + study_skills + time_management + work_ethic
-      end
+    if self.aptitude != nil
+      total_score = aptitude + dedication + desire + inquiry_skills + interaction + persistence + problem_solving + self_discipline + study_skills + time_management + work_ethic
+    end
   end
-  
+
   def created?
     self.aptitude == nil
   end

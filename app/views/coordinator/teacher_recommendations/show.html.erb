@@ -13,9 +13,9 @@
 				</h1>
 				<p>
 					If the teacher is not receiving the invitation emails, you can copy and paste the direct link below to them. <br />
-					Click the button to the right of the link to automatically copy it to your clipboard. <br />
-					<span id="clipme"><%= edit_teacher_recommendation_url(@teacher_recommendation) %></span>
-					<%= clippy("#{edit_teacher_recommendation_url(@teacher_recommendation)}", "#ffffff").html_safe %>
+					Click the button below the link to automatically copy it to your clipboard. <br />
+					<input type="text" id="clipMe" value="<%= edit_teacher_recommendation_url(@teacher_recommendation) %>" />
+          <button id="clipButton">Copy Link</button><span id="copyMsg" style="visibility:hidden;">&nbsp;Link copied!</span>
 				</p>
 		<% end %>
 		<h3 class="recommend">Faculty Recommendation for 
@@ -144,22 +144,7 @@
 				</td>
 			</tr>
 		</table>	
-		<h4 class="recommend">Teacher's general recommendation - based on the following scale:</h4>
-		<p class="offset3">
-			0 = Do not recommend<br />
-			1 = Recommend with reservations<br />
-			3 = Recommend<br />
-			5 = Highly Recommend
-		</p>
 		<table class="table table-bordered">
-			<tr>
-				<td class="description">
-					Recommendation Score:
-				</td>
-				<td class="score">
-					<%= @teacher_recommendation.recommendation %>
-				</td>
-			</tr>
 			<tr>
 				<td class="description">
 					Total Score:

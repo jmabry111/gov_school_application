@@ -37,8 +37,24 @@ $(function() {
 // Hides search button on applicant index page
 $(function() {
 	$("#search_button").hide();
-})
+});
 
+// Copy to clipboard
+document.addEventListener('turbolinks:load', () => {
+  document.querySelector('#clipButton').addEventListener('click', function() {
+    document.querySelector('#clipMe').select();
 
+    var succeed;
+    try {
+      succeed = document.execCommand('copy');
+    } catch (e) {
+      succeed = false;
+    }
+
+    if(succeed) {
+      document.querySelector('#copyMsg').style.visibility = 'visible';
+    }
+  });
+});
 
 
