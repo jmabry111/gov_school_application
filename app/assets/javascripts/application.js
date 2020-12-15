@@ -39,6 +39,22 @@ $(function() {
 	$("#search_button").hide();
 })
 
+// Copy to clipboard
+$(function() {
+  document.querySelector('#clipButton').addEventListener('click', function() {
+    document.querySelector('#clipMe').select();
 
+    var succeed;
+    try {
+      succeed = document.execCommand('copy');
+    } catch (e) {
+      succeed = false;
+    }
+
+    if (succeed) {
+      alert('Link has been copied.');
+    }
+  });
+});
 
 
