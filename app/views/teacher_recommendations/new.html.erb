@@ -77,15 +77,6 @@
 					:label => "Has exceptional work ethic"
 				%>
 				<hr />
-					<h3>Please indicate your general recommendation for this student.</h3>
-				<p>
-					0 = Do not recommend
-					1 = Recommend with reservations
-					3 = Recommend
-					5 = Highly recommend
-				</p>
-				<%= f.input :recommendation, :collection => ["0","1","3","5"], :as => :radio_buttons, :item_wrapper_class => :inline %>
-				<hr />
 				<%= f.input :subject, :label => "Subject Area" %>
 				<%= f.input :date_submitted, :label => "Date Submitted", :input_html => {:value => :date} %>
 				<hr />

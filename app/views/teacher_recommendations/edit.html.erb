@@ -104,15 +104,8 @@
 					:label => "Has exceptional work ethic"
 				%>
 		</div>
+		<hr />
 		<div class="span6">
-				<hr />
-					<h3>Please indicate your general recommendation for this student.</h3>
-				<%= f.input :recommendation, :collection => [["Do not recommend", 0],["Recommend with reservations", 1],
-					["Recommend", 3],["Highly recommend", 5]], :as => :collection_select,
-					:item_wrapper_class => :inline,
-				 	:input_html => {:value => @teacher_recommendation.recommendation}
-				%>
-				<hr />
 				<%= f.submit "Submit Recommendation", class: "btn btn-large btn-primary" %>
 			<% end %>
 			<br /><br />
