@@ -37,10 +37,10 @@ $(function() {
 // Hides search button on applicant index page
 $(function() {
 	$("#search_button").hide();
-})
+});
 
 // Copy to clipboard
-$(function() {
+document.addEventListener('turbolinks:load', () => {
   document.querySelector('#clipButton').addEventListener('click', function() {
     document.querySelector('#clipMe').select();
 
