@@ -18,46 +18,46 @@
 				<%= render 'shared/error_messages', object: f.object %>
 				<%= 
 					f.input :desire, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline, 
-					:label => "Shows desire and curiosity for learning" 
+					:label => "Is eager to learn new information in math, science, and technology"
 				%>
 				<%= 
 					f.input :aptitude, :collection => ["1","2","3","4","5"], :as => :radio_buttons, :item_wrapper_class => :inline,
-				 	:label => "Has aptitude and potential for study in math, science, technology and communications"
+				 	:label => "Shows aptitude in math, science, technology"
 				%>
 				<%= 
 					f.input :persistence, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Shows persistence when faced with challenges"
+					:label => "Shows persistence and resiliency when faced with challenges"
 				%>
 				<%= 
 					f.input :self_discipline, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline, 
-					:label => "Is self-disciplined in establishing and reaching goals"
+					:label => "Sets high expectations for themselves with minimal adult guidance and works towards those expectations"
 				%>
 				<%= 
 					f.input :interaction, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Interacts well with other students and teachers"
+					:label => "Collaborates easily with other students and teachers in order to further their academic success"
 				%>
 				<%= 
 					f.input :problem_solving, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Has developed problem-solving skills/critical thinking skills"
+					:label => "Is an innovative thinker and is able to critically analyze problems that are put before them"
 				%>
 				<%= 
 					f.input :inquiry_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Demonstrates skill in asking inquiry-type questions"
+					:label => "Asks questions that deepen their understanding of taught content"
 				%>
 				<%= 
 					f.input :study_skills, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Demonstrates outstanding study skills and work habits"
+					:label => "Demonstrates study skills and work habits necessary for academic success"
 				%>
 				<%= 
 					f.input :time_management, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Possesses excellent time management skills"
+					:label => "Possesses time management skills that allow them to consistently meet deadlines"
 				%>
         <!-- remove teamwork 
 				<%= 
@@ -69,13 +69,15 @@
 				<%= 
 					f.input :dedication, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,
-					:label => "Shows strong dedication"
+					:label => "Able to identify their academic strengths and weaknesses, and shows a willingness to accept feedback for personal growth"
 				%>
+        <!-- remove work_ethic
 				<%= 
 					f.input :work_ethic, :collection => ["1","2","3","4","5"], :as => :radio_buttons, 
 					:item_wrapper_class => :inline,	
 					:label => "Has exceptional work ethic"
 				%>
+        -->
 				<hr />
 				<%= f.input :subject, :label => "Subject Area" %>
 				<%= f.input :date_submitted, :label => "Date Submitted", :input_html => {:value => :date} %>
