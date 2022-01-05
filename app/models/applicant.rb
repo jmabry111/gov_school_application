@@ -51,7 +51,7 @@ class Applicant < ActiveRecord::Base
   end
   def science_recommendation_not_complete?
     science_recommendation = find_recommendation_by_subject("Science")
-    science_recommendation.work_ethic == nil
+    science_recommendation.desire == nil
   end
   
   def math_recommendation
@@ -59,7 +59,7 @@ class Applicant < ActiveRecord::Base
   end
   def math_recommendation_not_complete?
     math_recommendation = find_recommendation_by_subject("Math")
-    math_recommendation.work_ethic == nil
+    math_recommendation.desire == nil
   end
     
   def english_recommendation
@@ -67,7 +67,7 @@ class Applicant < ActiveRecord::Base
   end
   def english_recommendation_not_complete?
     english_recommendation = find_recommendation_by_subject("English")
-    english_recommendation.work_ethic == nil
+    english_recommendation.desire == nil
   end
   
   def count_recommendations
