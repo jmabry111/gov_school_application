@@ -47,7 +47,9 @@
 <% if current_user.is_admin? %>
 	<div class="row">
 		<div class="span4 offset4 move-down30">
+      <% if ENV['REGISTRATION_OPEN'] == 'false' %>
 				<%= button_to "Archive All Current Students", {:controller => "archives", :action => "create"}, {class: "btn"} %>
+      <% end %>
 		</div>
 	</div>
 <% end %>
