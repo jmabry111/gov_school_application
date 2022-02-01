@@ -5,7 +5,7 @@
 <div class="row">
 	<% @applicant_years.sort.reverse.each do |year, applicants| %>
 	<div class="span4">
-		<h3><%=h year.strftime("%Y") %> Applicants</h3>
+    <h3><%=h year.strftime("%Y") %> Applicants - (<%= applicants.count %>)</h3>
 		<ul class="applicants">
 		    <% for applicant in applicants %>
 		    <li class="evenrow">
